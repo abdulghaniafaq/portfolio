@@ -109,7 +109,7 @@ export const principles: Principle[] = [
 
 export const roles: Role[] = [
   {
-    title: 'Business Analyst',
+    title: 'Associate Product Manager',
     company: 'ABM Technologies',
     period: 'Jun 2026 — Present',
     location: 'Delaware, United States · Remote',
