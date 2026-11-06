@@ -20,8 +20,10 @@ function ScrollManager() {
     isFirst.current = false
 
     if (!hash) {
+      // Twice: the second call (next frame) also cancels any in-flight smooth scroll from the previous page.
       window.scrollTo({ top: 0, behavior: 'instant' })
-      return
+      const frame = requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }))
+      return () => cancelAnimationFrame(frame)
     }
     // Wait a frame so the target section has rendered after a route change.
     const id = requestAnimationFrame(() => {

@@ -451,6 +451,7 @@ export const skillGroups: SkillGroup[] = [
     title: 'Product',
     blurb: 'Deciding what to build, and making it buildable.',
     skills: [
+      'Product Management',
       'Product Ownership',
       'Product Discovery',
       'Product Strategy',
@@ -514,7 +515,7 @@ export const skillGroups: SkillGroup[] = [
   {
     icon: 'file',
     title: 'Pre-Sales Support',
-    blurb: 'Additionally, mapping client needs to credible solutions.',
+    blurb: 'Supporting proposals by mapping client needs to credible solutions.',
     skills: [
       'RFP Analysis',
       'Proposal Development',

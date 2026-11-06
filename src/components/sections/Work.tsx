@@ -15,9 +15,11 @@ export function Work() {
           description="Problems I’ve analyzed, products I’ve helped shape, and solutions I’ve helped bring to execution."
           align="split"
         />
-        <ul className="mt-16 grid gap-6 md:grid-cols-2">
+        <ul
+          className={`mt-16 grid gap-6 md:grid-cols-2 ${caseStudies.length % 3 === 0 ? 'lg:grid-cols-3' : ''}`}
+        >
           {caseStudies.map((study, i) => (
-            <Reveal as="li" key={study.slug} delay={(i % 2) * 80}>
+            <Reveal as="li" key={study.slug} delay={(i % 3) * 80}>
               <CaseStudyCard study={study} index={i} />
             </Reveal>
           ))}

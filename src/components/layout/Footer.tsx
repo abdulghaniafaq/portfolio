@@ -1,15 +1,8 @@
 import { Link } from 'react-router-dom'
-import { profile } from '../../data/portfolio'
+import { navLinks, profile } from '../../data/portfolio'
 import { contactLinks } from '../../lib/contact'
 import { Icon, type IconName } from '../ui/Icon'
 import { Value } from '../ui/Value'
-
-const footerLinks = [
-  { label: 'About', href: 'about' },
-  { label: 'Experience', href: 'experience' },
-  { label: 'Work', href: 'work' },
-  { label: 'Contact', href: 'contact' },
-]
 
 function SocialLink({ icon, label, href }: { icon: IconName; label: string; href: string | null }) {
   const inner = (
@@ -46,7 +39,7 @@ export function Footer() {
           <nav aria-label="Footer" className="md:col-span-3">
             <p className="eyebrow text-white/50">Navigate</p>
             <ul className="mt-4 space-y-2.5">
-              {footerLinks.map((l) => (
+              {navLinks.map((l) => (
                 <li key={l.href}>
                   <Link to={`/#${l.href}`} className="text-sm text-white/75 transition-colors hover:text-white">
                     {l.label}

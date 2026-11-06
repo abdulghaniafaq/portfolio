@@ -20,7 +20,7 @@ function Detail({ icon, label, value, href }: DetailProps) {
       </span>
       <span className="min-w-0">
         <span className="block text-xs text-muted">{label}</span>
-        <span className="mt-0.5 block truncate font-medium text-ink">
+        <span className="mt-0.5 block font-medium text-ink [overflow-wrap:anywhere]">
           <Value>{value}</Value>
         </span>
       </span>
@@ -54,8 +54,8 @@ export function Contact() {
         className="bg-dots pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_60%_70%_at_20%_40%,black,transparent)]"
       />
       <div className="container-page relative">
-        <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="lg:col-span-7">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
+          <Reveal className="min-w-0 lg:col-span-7">
             <p className="eyebrow flex items-center gap-3 text-muted">
               <span className="text-accent-600">07</span>
               <span aria-hidden="true" className="h-px w-8 bg-line-strong" />
@@ -84,7 +84,7 @@ export function Contact() {
             </div>
           </Reveal>
 
-          <Reveal delay={120} className="lg:col-span-5 lg:pt-16">
+          <Reveal delay={120} className="min-w-0 lg:col-span-5 lg:pt-16">
             <div id="contact-details" className="space-y-3">
               <Detail icon="mail" label="Email" value={email.label} href={email.href} />
               <Detail icon="linkedin" label="LinkedIn" value={linkedin.label} href={linkedin.href} />
