@@ -58,7 +58,7 @@ export function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="py-20 sm:py-28">
       <div className="container-page">
-        <SectionHeading id="about-title" index="01" label="About" title="About Me" />
+        <SectionHeading id="about-title" index="01" label="About" title="From business problem to shipped product" />
 
         <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">

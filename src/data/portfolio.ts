@@ -56,7 +56,7 @@ export const navLinks = [
 /* ── About ─────────────────────────────────────────────────── */
 
 export const about = {
-  lead: 'I work where business goals, user needs, and technology decisions meet.',
+  lead: 'I turn business needs into clear requirements and products that teams can build and users adopt.',
   paragraphs: [
     'My role is to understand the business problem first: who it affects, what the organization is trying to achieve, and what is getting in the way. From there I gather and analyze requirements and translate them into clear, actionable product requirements that design and engineering teams can build from.',
     'I stay involved from concept through execution: shaping features, writing user stories and acceptance criteria, managing the backlog, coordinating with QA, and supporting pre-sales and RFP work where a product has to be explained, positioned, and mapped to what a client actually needs.',
