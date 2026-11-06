@@ -1,6 +1,11 @@
 import { ButtonLink } from '../components/ui/Button'
+import { profile } from '../data/portfolio'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
+
+export const notFoundTitle = `Page not found | ${profile.name}`
 
 export function NotFoundPage() {
+  useDocumentMeta(notFoundTitle, undefined, { noindex: true })
   return (
     <section className="container-page flex min-h-[70vh] flex-col items-start justify-center pt-24">
       <p className="eyebrow text-accent-600">404</p>

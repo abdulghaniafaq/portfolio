@@ -47,9 +47,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
+      />
+    </noscript>
 
     <!-- Structured data -->
     <script type="application/ld+json">
@@ -58,7 +66,15 @@
         "@type": "Person",
         "name": "Abdul Ghani Afaq",
         "jobTitle": "Business Analyst | Product Manager",
+        "description": "Business Analyst and Associate Product Manager working across product strategy, requirements, backlog ownership, and delivery in Higher Education, EdTech, accessibility, and AI.",
         "url": "%VITE_SITE_URL%/",
+        "email": "mailto:ghaniabdul712@gmail.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/abdulghaniafaq/",
+          "https://www.linkedin.com/in/abdul-ghani-afaq-9a50971a6/"
+        ],
+        "address": { "@type": "PostalAddress", "addressLocality": "New Delhi", "addressCountry": "IN" },
+        "worksFor": { "@type": "Organization", "name": "ABM Technologies & Consultancy Inc" },
         "knowsAbout": [
           "Business Analysis",
           "Product Management",

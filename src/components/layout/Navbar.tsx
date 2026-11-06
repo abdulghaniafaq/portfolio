@@ -12,7 +12,6 @@ export function Logo({ className = '' }: { className?: string }) {
     <Link
       to="/"
       className={`group inline-flex items-center gap-3 ${className}`}
-      aria-label={`${profile.name} — home`}
     >
       <span
         aria-hidden="true"

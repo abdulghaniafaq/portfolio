@@ -16,12 +16,12 @@
   --color-ink-soft: #343842;
   --color-muted: #5c616b;
 
-  /* Single accent: ember. 600 is AA on paper/white; 400 is AA on ink. */
+  /* Single accent: ember. 600 is AA (≥4.5:1) on paper, white and sunken; 400 is AA on ink. */
   --color-accent-50: #fdf1ea;
   --color-accent-100: #fbe0d1;
   --color-accent-400: #f2743a;
   --color-accent-500: #e0551a;
-  --color-accent-600: #c2410c;
+  --color-accent-600: #b0380a;
   --color-accent-700: #9a330a;
 
   --shadow-card: 0 1px 2px rgb(17 19 24 / 0.04), 0 1px 1px rgb(17 19 24 / 0.03);

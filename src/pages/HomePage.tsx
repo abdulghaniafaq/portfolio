@@ -6,14 +6,11 @@ import { Process } from '../components/sections/Process'
 import { Skills } from '../components/sections/Skills'
 import { Toolkit } from '../components/sections/Toolkit'
 import { Work } from '../components/sections/Work'
-import { profile } from '../data/portfolio'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+import { homeMeta } from '../lib/seo'
 
 export function HomePage() {
-  useDocumentMeta(
-    `${profile.name} — ${profile.shortTitle}`,
-    `${profile.name} is a Business Analyst and Associate Product Manager working across product strategy, requirements, backlog ownership, and delivery in Higher Education, EdTech, accessibility, and AI.`,
-  )
+  useDocumentMeta(homeMeta.title, homeMeta.description, { path: homeMeta.path })
 
   return (
     <>

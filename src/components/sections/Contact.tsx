@@ -73,19 +73,10 @@ export function Contact() {
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <ButtonLink
-                to={email.href ?? '#contact-details'}
-                external
-                size="lg"
-                icon="arrowUpRight"
-              >
-                Get In Touch
-              </ButtonLink>
-              <ButtonLink
                 to={resume.href}
                 download={resume.filename}
                 external
                 size="lg"
-                variant="secondary"
                 icon="download"
               >
                 Download Resume

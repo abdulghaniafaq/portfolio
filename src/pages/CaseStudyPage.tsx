@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { caseStudies, profile } from '../data/portfolio'
+import { caseStudies } from '../data/portfolio'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+import { caseStudyMeta } from '../lib/seo'
+import { notFoundTitle } from './NotFoundPage'
 import { ButtonLink } from '../components/ui/Button'
 import { Chip } from '../components/ui/Chip'
 import { Icon } from '../components/ui/Icon'
@@ -28,8 +30,9 @@ export function CaseStudyPage() {
   const study = caseStudies[index]
 
   useDocumentMeta(
-    study ? `${study.name} — Case Study · ${profile.name}` : `Not found · ${profile.name}`,
+    study ? caseStudyMeta(study).title : notFoundTitle,
     study?.summary,
+    study ? { path: caseStudyMeta(study).path } : { noindex: true },
   )
 
   if (!study) return <NotFoundPage />
