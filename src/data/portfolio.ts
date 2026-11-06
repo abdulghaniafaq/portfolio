@@ -23,17 +23,17 @@ import type {
 export const profile: Profile = {
   name: 'Abdul Ghani Afaq',
   initials: 'AG',
-  title: 'Business Analyst | Product Owner | Pre-Sales & Product Operations',
-  shortTitle: 'Business Analyst | Product Owner',
+  title: 'Business Analyst | Product Manager | EdTech & Accessibility',
+  shortTitle: 'Business Analyst | Product Manager',
   tagline: 'Turning business problems into actionable products.',
 
   hero: {
-    eyebrow: 'Business Analyst · Product Owner · Pre-Sales & Product Operations',
-    headline: ['Business Analyst.', 'Product Owner.', 'Problem Solver.'],
+    eyebrow: 'Business Analyst · Product Manager · EdTech & Accessibility',
+    headline: ['Business Analyst.', 'Product Manager.', 'Problem Solver.'],
     supporting:
-      'I bridge business needs, user requirements, and technology execution to turn complex problems into practical digital products.',
+      'I connect business goals, user needs, and engineering delivery, turning complex problems into clear requirements and products people actually use.',
     intro:
-      'I’m Abdul Ghani Afaq, a Business Analyst and Product Owner working across product strategy, requirements, pre-sales, RFPs, project operations, and digital product development.',
+      'I’m Abdul Ghani Afaq, a Business Analyst and Associate Product Manager. I own requirements, backlogs, and delivery for products in Higher Education, EdTech, accessibility, and AI, and I also support pre-sales and RFP work.',
   },
 
   domains: ['Higher Education', 'EdTech', 'LMS', 'CMS', 'Accessibility', 'AI'],
@@ -59,15 +59,15 @@ export const about = {
   lead: 'I turn business needs into clear requirements and products that teams can build and users adopt.',
   paragraphs: [
     'My role is to understand the business problem first: who it affects, what the organization is trying to achieve, and what is getting in the way. From there I gather and analyze requirements and translate them into clear, actionable product requirements that design and engineering teams can build from.',
-    'I stay involved from concept through execution: shaping features, writing user stories and acceptance criteria, managing the backlog, coordinating with QA, and supporting pre-sales and RFP work where a product has to be explained, positioned, and mapped to what a client actually needs.',
+    'I stay involved from concept through execution: shaping features, writing user stories and acceptance criteria, managing the backlog, coordinating with QA, and working with stakeholders to validate outcomes. I also support pre-sales and RFP work when a product needs to be mapped to a client’s needs.',
   ],
   focusAreas: [
     'Business Analysis',
+    'Product Management',
     'Product Ownership',
     'Product Discovery',
     'Requirements Gathering',
     'Product Strategy',
-    'RFP & Pre-Sales',
     'Stakeholder Management',
     'Project Operations',
     'Agile / Scrum',
@@ -78,6 +78,7 @@ export const about = {
     'EdTech & Higher Education Technology',
     'AI-powered Products',
     'Accessibility',
+    'Pre-Sales & RFP Support',
   ],
 }
 
@@ -100,7 +101,7 @@ export const principles: Principle[] = [
   {
     icon: 'search',
     title: 'Strategic Research',
-    body: 'Market research, competitive analysis, RFP analysis, and identifying product opportunities.',
+    body: 'Market research, competitive analysis, user research, and identifying product opportunities.',
   },
 ]
 
@@ -390,53 +391,6 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: 'rfp-pre-sales',
-    name: 'RFP & Pre-Sales Portfolio',
-    tagline: 'Higher Education & Government Technology Opportunities',
-    domain: 'Higher Education · Government',
-    role: 'Pre-Sales / Business Analyst',
-    period: '[Ongoing / Project Period]',
-    cover: 'stack',
-    summary:
-      'Finding, analyzing, and responding to technology solicitations — turning long RFP documents into clear requirements, solution maps, and proposals.',
-    focus: [
-      'RFP research',
-      'Solicitation analysis',
-      'Requirement extraction',
-      'Technical approach development',
-      'Proposal documentation',
-      'Solution mapping',
-      'Compliance requirements',
-      'Competitive positioning',
-    ],
-    problem:
-      'Public-sector and higher-education solicitations are long, detailed, and strict. Responding well means finding the right opportunities, extracting every requirement, understanding compliance obligations, and presenting a solution that maps clearly to what the buyer asked for — usually on a tight deadline.',
-    contribution: [
-      'Researched and identified relevant RFP opportunities in higher education and government technology.',
-      'Analyzed solicitations and extracted functional, technical, and compliance requirements.',
-      'Mapped requirements to solution capabilities to show coverage and highlight gaps.',
-      'Developed technical approach sections and supporting proposal documentation.',
-      'Researched clients and competitors to inform positioning.',
-      'Developed case studies to support proposals with relevant experience.',
-    ],
-    solution:
-      'A repeatable pre-sales approach: structured requirement extraction, a requirements-to-solution map, and proposal content — technical approach, positioning, and supporting case studies — built directly from what each solicitation asked for.',
-    ecosystem: ['RFP / procurement platforms', 'Higher Education', 'Government technology', 'Proposal documentation'],
-    outcomes: [
-      'Requirements captured systematically instead of read ad hoc.',
-      'Proposals structured around the buyer’s own requirements and evaluation criteria.',
-      'Reusable technical approach and case-study content for future bids.',
-      'Earlier visibility into compliance requirements and solution gaps.',
-    ],
-    deliverables: [
-      'Requirements matrix',
-      'Solution map',
-      'Technical approach',
-      'Proposal documentation',
-      'Case studies',
-    ],
-  },
-  {
     slug: 'ai-edtech-research',
     name: 'AI & EdTech Product Research',
     tagline: 'Learning Platforms, AI Assistants & Accessibility',
@@ -480,6 +434,53 @@ export const caseStudies: CaseStudy[] = [
       'Opportunity summaries',
     ],
   },
+  {
+    slug: 'rfp-pre-sales',
+    name: 'RFP & Pre-Sales Support',
+    tagline: 'Higher Education & Government Technology Opportunities',
+    domain: 'Higher Education · Government',
+    role: 'Business Analyst · Pre-Sales Support',
+    period: '[Ongoing / Project Period]',
+    cover: 'stack',
+    summary:
+      'Finding, analyzing, and responding to technology solicitations — turning long RFP documents into clear requirements, solution maps, and proposals.',
+    focus: [
+      'RFP research',
+      'Solicitation analysis',
+      'Requirement extraction',
+      'Technical approach development',
+      'Proposal documentation',
+      'Solution mapping',
+      'Compliance requirements',
+      'Competitive positioning',
+    ],
+    problem:
+      'Public-sector and higher-education solicitations are long, detailed, and strict. Responding well means finding the right opportunities, extracting every requirement, understanding compliance obligations, and presenting a solution that maps clearly to what the buyer asked for — usually on a tight deadline.',
+    contribution: [
+      'Researched and identified relevant RFP opportunities in higher education and government technology.',
+      'Analyzed solicitations and extracted functional, technical, and compliance requirements.',
+      'Mapped requirements to solution capabilities to show coverage and highlight gaps.',
+      'Developed technical approach sections and supporting proposal documentation.',
+      'Researched clients and competitors to inform positioning.',
+      'Developed case studies to support proposals with relevant experience.',
+    ],
+    solution:
+      'A repeatable pre-sales approach: structured requirement extraction, a requirements-to-solution map, and proposal content — technical approach, positioning, and supporting case studies — built directly from what each solicitation asked for.',
+    ecosystem: ['RFP / procurement platforms', 'Higher Education', 'Government technology', 'Proposal documentation'],
+    outcomes: [
+      'Requirements captured systematically instead of read ad hoc.',
+      'Proposals structured around the buyer’s own requirements and evaluation criteria.',
+      'Reusable technical approach and case-study content for future bids.',
+      'Earlier visibility into compliance requirements and solution gaps.',
+    ],
+    deliverables: [
+      'Requirements matrix',
+      'Solution map',
+      'Technical approach',
+      'Proposal documentation',
+      'Case studies',
+    ],
+  },
 ]
 
 /* ── Skills ────────────────────────────────────────────────── */
@@ -499,6 +500,8 @@ export const skillGroups: SkillGroup[] = [
       'User Stories',
       'Acceptance Criteria',
       'Product Documentation',
+      'Market Research',
+      'Competitive Analysis',
     ],
   },
   {
@@ -514,20 +517,6 @@ export const skillGroups: SkillGroup[] = [
       'Stakeholder Analysis',
       'BRD / FRD',
       'User Journey Mapping',
-    ],
-  },
-  {
-    icon: 'file',
-    title: 'Pre-Sales',
-    blurb: 'Mapping client needs to credible solutions.',
-    skills: [
-      'RFP Analysis',
-      'Proposal Development',
-      'Solution Mapping',
-      'Technical Approach',
-      'Market Research',
-      'Competitive Analysis',
-      'Client Research',
     ],
   },
   {
@@ -560,6 +549,18 @@ export const skillGroups: SkillGroup[] = [
       'WCAG',
       'Web Applications',
       'Cloud Platforms',
+    ],
+  },
+  {
+    icon: 'file',
+    title: 'Pre-Sales Support',
+    blurb: 'Additionally, mapping client needs to credible solutions.',
+    skills: [
+      'RFP Analysis',
+      'Proposal Development',
+      'Solution Mapping',
+      'Technical Approach',
+      'Client Research',
     ],
   },
 ]
@@ -612,6 +613,6 @@ export const tools: Tool[] = [
   { name: 'Google Workspace', use: 'Collaboration', icon: 'users' },
   { name: 'Microsoft Office', use: 'Documents & analysis', icon: 'fileText' },
   { name: 'AI Tools', use: 'Research & drafting', icon: 'sparkles' },
-  { name: 'RFP / Procurement Platforms', use: 'Opportunity research', icon: 'landmark' },
   { name: 'Analytics & Research Tools', use: 'Market insight', icon: 'chart' },
+  { name: 'RFP / Procurement Platforms', use: 'Opportunity research', icon: 'landmark' },
 ]

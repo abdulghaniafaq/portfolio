@@ -12,7 +12,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 export function HomePage() {
   useDocumentMeta(
     `${profile.name} — ${profile.shortTitle}`,
-    `${profile.name} is a Business Analyst and Product Owner working across product strategy, requirements, pre-sales, RFPs, and project operations in Higher Education, EdTech, accessibility, and AI.`,
+    `${profile.name} is a Business Analyst and Associate Product Manager working across product strategy, requirements, backlog ownership, and delivery in Higher Education, EdTech, accessibility, and AI.`,
   )
 
   return (

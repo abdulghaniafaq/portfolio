@@ -91,7 +91,7 @@ export function Experience() {
           index="02"
           label="Experience"
           title="Experience"
-          description="Three years across pre-sales, product ownership, business analysis, and project operations — from requirements and RPA automation to Scrum delivery and RFP strategy."
+          description="Three years across business analysis, product management, and project operations — from requirements and RPA automation to Scrum delivery, with pre-sales and RFP support along the way."
           align="split"
         />
 

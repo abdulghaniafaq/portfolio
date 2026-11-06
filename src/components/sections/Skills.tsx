@@ -57,7 +57,7 @@ export function Skills() {
           index="04"
           label="Skills"
           title="Skills & Expertise"
-          description="Grouped by the kind of work they support — from shaping a product to delivering it and positioning it for clients."
+          description="Grouped by the kind of work they support — from shaping a product to delivering it, with pre-sales support as an added strength."
           align="split"
         />
         <ul className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
