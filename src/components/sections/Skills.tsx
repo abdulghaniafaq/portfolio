@@ -12,7 +12,7 @@ function SkillCard({ group, featured }: { group: SkillGroup; featured: boolean }
     <article
       className={`group h-full rounded-2xl border p-6 transition-[border-color,box-shadow] duration-300 sm:p-7 ${
         featured
-          ? 'on-dark border-ink bg-ink text-white'
+          ? 'on-dark border-panel bg-panel text-white'
           : 'border-line bg-surface shadow-card hover:border-line-strong hover:shadow-lift'
       }`}
     >

@@ -3,6 +3,7 @@ import type { ExperienceArea, Role } from '../../data/types'
 import { Icon } from '../ui/Icon'
 import { Reveal } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
+import { CareerTimeline } from './CareerTimeline'
 import { Value } from '../ui/Value'
 
 function RoleCard({ role }: { role: Role }) {
@@ -94,6 +95,8 @@ export function Experience() {
           description="Three years across business analysis, product management, and project operations — from requirements gathering to Scrum delivery, with pre-sales and RFP support along the way."
           align="split"
         />
+
+        <CareerTimeline />
 
         {roles.map((role) => (
           <div key={`${role.title}-${role.period}`} className="mt-16 grid gap-12 lg:grid-cols-12 lg:gap-16">

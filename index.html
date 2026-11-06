@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f7f6f2" />
+    <meta name="color-scheme" content="light dark" />
+    <!-- Sets the theme before first paint so dark-mode visitors never see a white flash. -->
+    <script>
+      try {
+        var t = localStorage.getItem('theme')
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.dataset.theme = t
+        document.querySelector('meta[name="theme-color"]').content = t === 'dark' ? '#0d0f12' : '#f7f6f2'
+      } catch (e) {}
+    </script>
 
     <title>Abdul Ghani Afaq — Business Analyst | Product Manager</title>
     <meta

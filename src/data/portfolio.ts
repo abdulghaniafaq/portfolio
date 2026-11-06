@@ -36,6 +36,15 @@ export const profile: Profile = {
       'I’m Abdul Ghani Afaq, a Business Analyst and Associate Product Manager. I own requirements, backlogs, and delivery for products in Higher Education, EdTech, accessibility, and AI, and I also support pre-sales and RFP work.',
   },
 
+  availability: 'Immediately available',
+
+  stats: [
+    { value: '3', suffix: '+', label: 'Years in business analysis, product, and project roles' },
+    { value: '4', suffix: '+', label: 'Product launches for global clients' },
+    { value: '50', suffix: '+', label: 'Stakeholder calls to elicit requirements' },
+    { value: '7', label: 'Strategic decisions surfaced for executive leadership' },
+  ],
+
   domains: ['Higher Education', 'EdTech', 'LMS', 'CMS', 'Accessibility', 'AI'],
 
   contact: {

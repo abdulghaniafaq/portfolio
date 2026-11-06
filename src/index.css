@@ -15,6 +15,13 @@
   --color-ink: #111318;
   --color-ink-soft: #343842;
   --color-muted: #5c616b;
+  --color-ink-fixed: #111318; /* never flips: text on always-light or orange fills */
+
+  /* Dark panels (footer, process band, featured skill card). Darker than the page in light mode, lifted in dark mode. */
+  --color-panel: #111318;
+  --color-panel-hover: #343842;
+
+  --color-success: #15803d;
 
   /* Single accent: ember. 600 is AA (≥4.5:1) on paper, white and sunken; 400 is AA on ink. */
   --color-accent-50: #fdf1ea;
@@ -26,8 +33,42 @@
 
   --shadow-card: 0 1px 2px rgb(17 19 24 / 0.04), 0 1px 1px rgb(17 19 24 / 0.03);
   --shadow-lift: 0 1px 2px rgb(17 19 24 / 0.04), 0 12px 32px -12px rgb(17 19 24 / 0.16);
+  --dot-color: rgb(17 19 24 / 0.09);
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Dark theme ────────────────────────────────────────────── */
+/*  Applied by <html data-theme="dark">, set before first paint by the inline script in index.html. */
+/*  Only tokens change; components use tokens so nothing else needs a dark variant.               */
+/*  Measured contrast on the page/card/sunken surfaces: muted 7.4/6.8/6.5:1, accent-600 7.7/7.2:1,   */
+/*  success 11:1 (all above the 4.5:1 AA minimum).                                                 */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-paper: #0d0f12;
+  --color-surface: #15181d;
+  --color-sunken: #1a1d23;
+  --color-line: #262a31;
+  --color-line-strong: #3a3f49;
+  --color-ink: #ecebe6;
+  --color-ink-soft: #c9cbd1;
+  --color-muted: #9aa1ad;
+
+  --color-accent-50: #2a1810;
+  --color-accent-100: #3b2012;
+  --color-accent-400: #f2743a;
+  --color-accent-500: #ef6a2a;
+  --color-accent-600: #f7864f;
+  --color-accent-700: #fbab7e;
+
+  --color-panel: #171a20;
+  --color-panel-hover: #20242b;
+  --color-success: #4ade80;
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 1px 1px rgb(0 0 0 / 0.3);
+  --shadow-lift: 0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px -12px rgb(0 0 0 / 0.6);
+  --dot-color: rgb(255 255 255 / 0.06);
 }
 
 /* ── Base ──────────────────────────────────────────────────── */
@@ -96,7 +137,7 @@
 
   /* Subtle dot grid, used behind the hero and a few panels */
   .bg-dots {
-    background-image: radial-gradient(circle at 1px 1px, rgb(17 19 24 / 0.09) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, var(--dot-color) 1px, transparent 0);
     background-size: 22px 22px;
   }
   .bg-dots-dark {

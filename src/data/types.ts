@@ -12,6 +12,10 @@ export interface Profile {
     supporting: string
     intro: string
   }
+  /** Short availability badge shown in the hero, e.g. "Immediately available". */
+  availability: string
+  /** Headline numbers shown under the hero. */
+  stats: { value: string; suffix?: string; label: string }[]
   domains: string[]
   contact: {
     email: string

@@ -13,10 +13,10 @@ const sizes = {
 }
 
 const variants: Record<Variant, string> = {
-  primary: 'bg-ink text-white hover:bg-accent-600 shadow-card',
+  primary: 'bg-ink text-paper hover:bg-accent-600 shadow-card',
   secondary: 'border border-line-strong bg-surface text-ink hover:border-ink',
   ghost: 'text-ink hover:text-accent-600',
-  inverse: 'bg-white text-ink hover:bg-accent-400 hover:text-ink',
+  inverse: 'bg-white text-ink-fixed hover:bg-accent-400',
 }
 
 interface ButtonLinkProps {

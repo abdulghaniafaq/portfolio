@@ -4,6 +4,7 @@ import { navLinks, profile } from '../../data/portfolio'
 import { useActiveSection } from '../../hooks/useActiveSection'
 import { resume } from '../../lib/contact'
 import { Icon } from '../ui/Icon'
+import { ThemeToggle } from '../ui/ThemeToggle'
 
 const sectionIds = navLinks.map((l) => l.href)
 
@@ -15,12 +16,12 @@ export function Logo({ className = '' }: { className?: string }) {
     >
       <span
         aria-hidden="true"
-        className="relative grid size-9 place-items-center rounded-[10px] bg-ink text-[0.8125rem] font-semibold tracking-tight text-white transition-colors group-hover:bg-accent-600"
+        className="relative grid size-9 place-items-center rounded-[10px] bg-ink text-[0.8125rem] font-semibold tracking-tight text-paper transition-colors group-hover:bg-accent-600"
       >
         {profile.initials}
         <span className="absolute -right-0.5 -bottom-0.5 size-2 rounded-full bg-accent-500 ring-2 ring-paper group-hover:bg-ink" />
       </span>
-      <span className="text-[0.9375rem] font-semibold tracking-tight text-ink">{profile.name}</span>
+      <span className="text-[0.9375rem] font-semibold tracking-tight text-ink max-[22rem]:sr-only">{profile.name}</span>
     </Link>
   )
 }
@@ -126,13 +127,24 @@ export function Navbar() {
             Resume
             <Icon name="download" size={16} />
           </a>
+          {/* Phones: the resume stays one tap away instead of hiding inside the menu */}
+          <a
+            href={resume.href}
+            download={resume.filename}
+            aria-label="Download resume"
+            className="grid size-10 place-items-center rounded-full border border-line-strong bg-surface text-ink transition-colors hover:border-ink sm:hidden"
+          >
+            <Icon name="download" size={17} />
+          </a>
           <Link
             to="/#contact"
-            className="group hidden h-10 items-center gap-2 rounded-full bg-ink px-4 text-sm font-medium text-white transition-colors hover:bg-accent-600 sm:inline-flex"
+            className="group hidden h-10 items-center gap-2 rounded-full bg-ink px-4 text-sm font-medium text-paper transition-colors hover:bg-accent-600 sm:inline-flex"
           >
             Let’s Talk
             <Icon name="arrowUpRight" size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
+
+          <ThemeToggle className="size-10" />
 
           <button
             ref={toggleRef}
@@ -191,7 +203,7 @@ export function Navbar() {
             </a>
             <Link
               to="/#contact"
-              className="flex h-12 items-center justify-center gap-2 rounded-full bg-ink font-medium text-white"
+              className="flex h-12 items-center justify-center gap-2 rounded-full bg-ink font-medium text-paper"
             >
               Let’s Talk
               <Icon name="arrowUpRight" size={17} />

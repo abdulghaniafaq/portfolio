@@ -25,7 +25,7 @@ function SocialLink({ icon, label, href }: { icon: IconName; label: string; href
 
 export function Footer() {
   return (
-    <footer className="on-dark bg-ink text-white">
+    <footer className="on-dark bg-panel text-white">
       <div className="container-page py-16">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-6">

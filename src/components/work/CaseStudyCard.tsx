@@ -40,7 +40,7 @@ export function CaseStudyCard({ study, index }: { study: CaseStudy; index: numbe
           <span className="text-sm font-medium text-ink transition-colors group-hover:text-accent-600">
             View Case Study
           </span>
-          <span className="grid size-9 place-items-center rounded-full border border-line-strong text-ink transition-all duration-300 group-hover:border-accent-600 group-hover:bg-accent-600 group-hover:text-white">
+          <span className="grid size-9 place-items-center rounded-full border border-line-strong text-ink transition-all duration-300 group-hover:border-accent-600 group-hover:bg-accent-600 group-hover:text-paper">
             <Icon name="arrowUpRight" size={16} />
           </span>
         </div>

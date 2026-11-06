@@ -155,14 +155,14 @@ export function CaseStudyPage() {
         <Reveal>
           <Link
             to={`/work/${next.slug}`}
-            className="group flex flex-col gap-6 rounded-2xl bg-ink p-8 text-white transition-colors hover:bg-ink-soft sm:flex-row sm:items-center sm:justify-between sm:p-10"
+            className="group flex flex-col gap-6 rounded-2xl bg-panel p-8 text-white transition-colors hover:bg-panel-hover sm:flex-row sm:items-center sm:justify-between sm:p-10"
           >
             <div>
               <p className="eyebrow text-white/50">Next case study</p>
               <p className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{next.name}</p>
               <p className="mt-1 text-white/65">{next.tagline}</p>
             </div>
-            <span className="grid size-14 shrink-0 place-items-center rounded-full bg-white text-ink transition-colors group-hover:bg-accent-400">
+            <span className="grid size-14 shrink-0 place-items-center rounded-full bg-white text-ink-fixed transition-colors group-hover:bg-accent-400">
               <Icon name="arrowRight" size={22} className="transition-transform group-hover:translate-x-0.5" />
             </span>
           </Link>

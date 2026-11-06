@@ -81,6 +81,11 @@ export function Contact() {
               >
                 Download Resume
               </ButtonLink>
+              {linkedin.href && (
+                <ButtonLink to={linkedin.href} external size="lg" variant="secondary" icon="linkedin">
+                  Message on LinkedIn
+                </ButtonLink>
+              )}
             </div>
           </Reveal>
 

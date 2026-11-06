@@ -16,7 +16,7 @@ export function Process() {
     <section
       id="approach"
       aria-labelledby="approach-title"
-      className="on-dark relative overflow-hidden bg-ink py-20 text-white sm:py-28"
+      className="on-dark relative overflow-hidden bg-panel py-20 text-white sm:py-28"
     >
       <div
         aria-hidden="true"
@@ -54,8 +54,8 @@ export function Process() {
                   <span
                     className={`relative z-10 grid size-[3.25rem] shrink-0 place-items-center rounded-full border font-mono text-sm transition-colors duration-300 ${
                       i === 0
-                        ? 'border-accent-400 bg-accent-400 text-ink'
-                        : 'border-white/20 bg-ink text-white group-hover:border-accent-400 group-hover:text-accent-400'
+                        ? 'border-accent-400 bg-accent-400 text-ink-fixed'
+                        : 'border-white/20 bg-panel text-white group-hover:border-accent-400 group-hover:text-accent-400'
                     }`}
                   >
                     {step.number}
