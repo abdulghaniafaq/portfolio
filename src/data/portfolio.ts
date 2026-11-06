@@ -111,83 +111,109 @@ export const principles: Principle[] = [
 export const roles: Role[] = [
   {
     title: 'Associate Product Manager',
-    company: 'ABM Technologies',
+    company: 'ABM Technologies & Consultancy Inc',
     period: 'Jun 2026 — Present',
-    location: 'Delaware, United States · Remote',
+    location: 'Delaware, United States',
     current: true,
-    domains: ['Product Management', 'Accessibility'],
+    domains: ['US Higher Education SaaS', 'AI / RAG Platforms', 'Digital Accessibility Compliance'],
     summary:
-      'End-to-end product management with direct client handling — bridging business requirements, accessibility considerations, and delivery for LMS, CMS, and web development products.',
+      'End-to-end product lifecycle ownership for two higher-education SaaS products — KORA AI and EDRO — from requirements and roadmap through to production.',
     areas: [
       {
         icon: 'layers',
-        title: 'Product Management & Client Handling',
-        impact: 'Owning end-to-end product management with direct client handling from requirements through delivery.',
-        items: ['Product Management', 'Client handling', 'End-to-end delivery ownership', 'Backlog management'],
+        title: 'Product Lifecycle & Delivery',
+        impact:
+          'Managing end-to-end product lifecycle activities across engineering, UX/UI design, and QA, running Agile/Scrum ceremonies while aligning business goals with C-suite and client stakeholders.',
+        items: ['Agile / Scrum ceremonies', 'Cross-functional leadership', 'Stakeholder alignment', 'Release notes'],
+      },
+      {
+        icon: 'clipboard',
+        title: 'Requirements & Backlog — KORA AI and EDRO',
+        impact:
+          'Leading business analysis for KORA AI (an AI chatbot platform) and EDRO (a digital accessibility compliance platform), owning requirements end to end and running both Jira backlogs from first ticket to production.',
+        items: [
+          'User stories & acceptance criteria',
+          'Technical tasks across multiple epics',
+          'BRDs',
+          'Reduced engineering rework',
+        ],
       },
       {
         icon: 'workflow',
-        title: 'Accessibility & Cross-Functional Delivery',
+        title: 'Product Strategy & Roadmap',
         impact:
-          'Validating product feasibility and accessibility with technical, design, and delivery teams.',
-        items: ['Accessibility', 'Requirement documentation', 'Feasibility validation', 'Cross-functional coordination'],
+          'Synthesizing 5 disparate sources into a unified feature specification that surfaced 7 pivotal strategic decisions for executive leadership, and maintaining a 12-month roadmap with engineering.',
+        items: ['12-month product roadmap', 'Feature specification', '7 strategic decisions surfaced', 'Sprint-level prioritization'],
+      },
+      {
+        icon: 'search',
+        title: 'Accessibility Product & Go-to-Market',
+        impact:
+          'Defining requirements and screen flows for the PDF remediation workspace, mapping a 10-gate accessibility pipeline aligned with ADA/WCAG, and delivering go-to-market materials.',
+        items: [
+          'PDF remediation workflow',
+          '10-gate ADA/WCAG pipeline',
+          'Vendor evaluation (Allyant, Equidox, Rev, Verbit, Kaltura, 3Play, Amara)',
+          '~$250M TAM market sizing',
+          'Competitor analysis',
+          'Pitch decks',
+        ],
       },
     ],
   },
   {
-    title: 'Manager - Project Operations',
-    company: 'ABM Technologies',
-    period: 'Dec 2025 — May 2026',
-    location: 'Delaware, United States · Remote',
-    domains: ['RFP', 'RFQ', 'Project Operations'],
+    title: 'Manager – Pre-Sales & Operations',
+    subtitle: 'Transitioning Product Owner',
+    company: 'ABM Technologies & Consultancy Inc',
+    period: 'Jan 2026 — May 2026',
+    location: 'Delaware, United States',
+    domains: ['LMS', 'CMS', 'Web Development Products'],
     summary:
-      'Managed project operations end-to-end for LMS, CMS, and web development products — driving RFP and RFQ processes alongside cross-functional delivery coordination.',
+      'Bridged business needs and product delivery for LMS, CMS, and web development products — taking on backlog and requirements ownership while overseeing RFP/RFQ cycles.',
     areas: [
       {
-        icon: 'file',
-        title: 'RFP & RFQ Management',
-        impact: 'Owning RFP and RFQ processes across the pre-sales-to-delivery pipeline.',
-        items: [
-          'Request for Proposal (RFP)',
-          'Request for Quotation (RFQ)',
-          'Pipeline tracking',
-          '~10% MoM pipeline efficiency gain',
-          'Shortlisted in 2 competitive RFPs',
-        ],
+        icon: 'workflow',
+        title: 'Feasibility & Solution Scope',
+        impact:
+          'Collaborating with technical, design, and delivery teams to validate product feasibility, define solution scope, and keep proposals accurate and competitive.',
+        items: ['Feasibility validation', 'Solution scope definition', 'Cross-functional coordination'],
       },
       {
         icon: 'kanban',
-        title: 'Project Operations',
-        impact: 'Coordinating cross-functional project operations to keep delivery on track.',
-        items: ['Project operations', 'Cross-functional coordination', 'Solution scope definition'],
+        title: 'Backlog & Requirements Ownership',
+        impact:
+          'Taking ownership of backlog management, requirement documentation, and cross-functional coordination while transitioning into a Product Owner capacity.',
+        items: ['Backlog management', 'Requirement documentation', 'Product Owner transition'],
+      },
+      {
+        icon: 'file',
+        title: 'RFP & RFQ Cycles',
+        impact: 'Overseeing end-to-end RFP/RFQ cycles for LMS, CMS, and web development products.',
+        items: ['RFP / RFQ management', '~10% MoM pipeline efficiency gain', 'Shortlisted in 2 competitive RFPs'],
       },
     ],
   },
   {
-    title: 'Consultant - Project Operations',
-    company: 'ABM Technologies',
-    period: 'Aug 2025 — Dec 2025',
-    location: 'Delaware, United States · Remote',
-    domains: ['RFP', 'RFP Design'],
+    title: 'Consultant – Pre-Sales',
+    company: 'ABM Technologies & Consultancy Inc',
+    period: 'Oct 2025 — Dec 2025',
+    location: 'Delaware, United States',
+    domains: ['Pre-Sales', 'RFP', 'RFQ'],
     summary:
-      'Supported project operations with a focus on RFP design and proposal development — from opportunity qualification through on-time submission.',
+      'Owned the full pre-sales cycle — from qualification and requirement discussions to solution structuring and on-time RFP/RFQ submissions.',
     areas: [
       {
         icon: 'search',
-        title: 'RFP Design & Proposals',
-        impact: 'Designing and developing RFP responses, from opportunity qualification to solution structuring.',
-        items: ['Request for Proposal (RFP)', 'RFP Design', 'Opportunity qualification', 'Solution structuring'],
+        title: 'Pre-Sales Cycle Ownership',
+        impact: 'Owning the full pre-sales cycle, from qualification and requirement discussions to solution structuring.',
+        items: ['Opportunity qualification', 'Requirement discussions', 'Solution structuring', 'Client engagement'],
       },
       {
         icon: 'pen',
-        title: 'Project Operations Support',
-        impact: 'Writing and submitting proposals while supporting project operations across the client engagement lifecycle.',
-        items: [
-          'Proposal writing',
-          'On-time RFP/RFQ submissions',
-          'Client engagement',
-          'Employee of the Month — bid management',
-        ],
+        title: 'RFP/RFQ Submissions & Recognition',
+        impact:
+          'Delivering on-time RFP/RFQ submissions, and recognized as Employee of the Month for bid management and client engagement.',
+        items: ['On-time RFP/RFQ submissions', 'Proposal writing', 'Employee of the Month — bid management'],
       },
     ],
   },
@@ -277,7 +303,7 @@ export const roles: Role[] = [
           'Leading analysis for a UiPath RPA initiative automating AP invoice processing for a mid-sized financial services client.',
         items: [
           'UiPath (RPA)',
-          '500+ monthly transactions automated',
+          '500+ monthly transactions',
           '20% reduction in manual processing steps',
         ],
       },
@@ -299,9 +325,9 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'kora',
     name: 'KORA',
-    tagline: 'AI-Powered Higher Education Product',
+    tagline: 'AI Chatbot Platform for Higher Education',
     domain: 'Higher Education · AI',
-    role: 'Business Analyst / Product Owner',
+    role: 'Associate Product Manager',
     period: 'Jun 2026 — Present',
     cover: 'network',
     summary:
@@ -346,9 +372,9 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'edro',
     name: 'EDRO',
-    tagline: 'Digital Accessibility & PDF Accessibility Platform',
+    tagline: 'Digital Accessibility Compliance Platform',
     domain: 'Digital Accessibility',
-    role: 'Business Analyst',
+    role: 'Associate Product Manager',
     period: 'Jun 2026 — Present',
     cover: 'document',
     summary:

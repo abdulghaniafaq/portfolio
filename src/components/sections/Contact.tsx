@@ -1,5 +1,5 @@
 import { profile } from '../../data/portfolio'
-import { contactLinks } from '../../lib/contact'
+import { contactLinks, resume } from '../../lib/contact'
 import { ButtonLink } from '../ui/Button'
 import { Icon, type IconName } from '../ui/Icon'
 import { Reveal } from '../ui/Reveal'
@@ -65,13 +65,13 @@ export function Contact() {
               id="contact-title"
               className="mt-6 text-5xl leading-[1] font-semibold tracking-[-0.045em] text-balance text-ink sm:text-6xl lg:text-7xl"
             >
-              Have a problem <span className="font-serif font-normal tracking-[-0.02em] text-accent-600 italic">worth solving?</span>
+              Hiring for a BA or PM role? <span className="font-serif font-normal tracking-[-0.02em] text-accent-600 italic">Let’s talk.</span>
             </h2>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-pretty text-muted">
-              Whether you’re building a digital product, improving an existing platform, analyzing a
-              business problem, or exploring a technology opportunity, let’s talk.
+              I’m open to Business Analyst and Product Manager roles, especially in EdTech, higher
+              education, AI, and accessibility. Send me a note or grab my resume, and I’ll get back to you.
             </p>
-            <div className="mt-9">
+            <div className="mt-9 flex flex-wrap gap-3">
               <ButtonLink
                 to={email.href ?? '#contact-details'}
                 external
@@ -79,6 +79,16 @@ export function Contact() {
                 icon="arrowUpRight"
               >
                 Get In Touch
+              </ButtonLink>
+              <ButtonLink
+                to={resume.href}
+                download={resume.filename}
+                external
+                size="lg"
+                variant="secondary"
+                icon="download"
+              >
+                Download Resume
               </ButtonLink>
             </div>
           </Reveal>

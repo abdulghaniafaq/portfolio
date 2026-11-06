@@ -163,9 +163,9 @@ export function CaseStudyPage() {
           </Link>
         </Reveal>
         <Reveal delay={80} className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-lg text-ink-soft">Working on something similar?</p>
+          <p className="text-lg text-ink-soft">Hiring for a similar role?</p>
           <ButtonLink to="/#contact" variant="secondary" icon="arrowUpRight">
-            Let’s Work Together
+            Let’s Talk
           </ButtonLink>
         </Reveal>
       </div>

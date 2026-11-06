@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { navLinks, profile } from '../../data/portfolio'
 import { useActiveSection } from '../../hooks/useActiveSection'
+import { resume } from '../../lib/contact'
 import { Icon } from '../ui/Icon'
 
 const sectionIds = navLinks.map((l) => l.href)
@@ -118,11 +119,19 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
+          <a
+            href={resume.href}
+            download={resume.filename}
+            className="group hidden h-10 items-center gap-2 rounded-full border border-line-strong bg-surface px-4 text-sm font-medium text-ink transition-colors hover:border-ink sm:inline-flex"
+          >
+            Resume
+            <Icon name="download" size={16} />
+          </a>
           <Link
             to="/#contact"
             className="group hidden h-10 items-center gap-2 rounded-full bg-ink px-4 text-sm font-medium text-white transition-colors hover:bg-accent-600 sm:inline-flex"
           >
-            Let’s Work Together
+            Let’s Talk
             <Icon name="arrowUpRight" size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
 
@@ -173,11 +182,19 @@ export function Navbar() {
             ))}
           </ul>
           <div className="mt-auto pt-10">
+            <a
+              href={resume.href}
+              download={resume.filename}
+              className="mb-3 flex h-12 items-center justify-center gap-2 rounded-full border border-line-strong bg-surface font-medium text-ink"
+            >
+              Download Resume
+              <Icon name="download" size={17} />
+            </a>
             <Link
               to="/#contact"
               className="flex h-12 items-center justify-center gap-2 rounded-full bg-ink font-medium text-white"
             >
-              Let’s Work Together
+              Let’s Talk
               <Icon name="arrowUpRight" size={17} />
             </Link>
             <p className="mt-4 text-center text-sm text-muted">{profile.shortTitle}</p>

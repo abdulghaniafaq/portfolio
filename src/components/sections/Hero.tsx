@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { caseStudies, profile } from '../../data/portfolio'
 import { HeroVisual } from '../hero/HeroVisual'
+import { resume } from '../../lib/contact'
 import { ButtonLink } from '../ui/Button'
 import { Icon } from '../ui/Icon'
 import { Reveal } from '../ui/Reveal'
@@ -52,7 +53,10 @@ export function Hero() {
               <ButtonLink to="/#work" size="lg">
                 View My Work
               </ButtonLink>
-              <ButtonLink to="/#contact" size="lg" variant="secondary" icon="arrowUpRight">
+              <ButtonLink to={resume.href} download={resume.filename} external size="lg" variant="secondary" icon="download">
+                Download Resume
+              </ButtonLink>
+              <ButtonLink to="/#contact" size="lg" variant="ghost" icon="arrowUpRight">
                 Let’s Connect
               </ButtonLink>
             </Reveal>

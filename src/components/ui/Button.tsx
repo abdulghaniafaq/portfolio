@@ -26,6 +26,8 @@ interface ButtonLinkProps {
   size?: keyof typeof sizes
   icon?: IconName
   external?: boolean
+  /** Suggested filename; makes the browser download the file instead of navigating. */
+  download?: string
   className?: string
 }
 
@@ -37,6 +39,7 @@ export function ButtonLink({
   size = 'md',
   icon = 'arrowRight',
   external,
+  download,
   className = '',
 }: ButtonLinkProps) {
   const classes = `${base} ${sizes[size]} ${variants[variant]} ${className}`
@@ -52,7 +55,7 @@ export function ButtonLink({
   )
   if (external) {
     return (
-      <a href={to} className={classes}>
+      <a href={to} download={download} className={classes}>
         {content}
       </a>
     )
