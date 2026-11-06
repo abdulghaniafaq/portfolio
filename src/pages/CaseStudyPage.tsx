@@ -69,7 +69,9 @@ export function CaseStudyPage() {
                 { label: 'My role', value: study.role },
                 { label: 'Project Period', value: study.period },
                 { label: 'Ecosystem', value: study.ecosystem.slice(0, 3).join(', ') },
-              ].map((row) => (
+              ]
+                .filter((row): row is { label: string; value: string } => Boolean(row.value))
+                .map((row) => (
                 <div key={row.label}>
                   <dt className="text-muted">{row.label}</dt>
                   <dd className="mt-1 font-medium text-ink">

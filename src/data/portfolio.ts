@@ -422,7 +422,6 @@ export const caseStudies: CaseStudy[] = [
     tagline: 'Learning Platforms, AI Assistants & Accessibility',
     domain: 'EdTech · AI',
     role: 'Business Analyst / Product Research',
-    period: '[Project Period]',
     cover: 'grid',
     summary:
       'Researching how AI is reshaping digital learning — across LMS and CMS platforms, AI assistants, RAG solutions, and accessibility.',
@@ -458,53 +457,6 @@ export const caseStudies: CaseStudy[] = [
       'Platform comparison notes',
       'AI use-case mapping',
       'Opportunity summaries',
-    ],
-  },
-  {
-    slug: 'rfp-pre-sales',
-    name: 'RFP & Pre-Sales Support',
-    tagline: 'Higher Education & Government Technology Opportunities',
-    domain: 'Higher Education · Government',
-    role: 'Business Analyst · Pre-Sales Support',
-    period: '[Ongoing / Project Period]',
-    cover: 'stack',
-    summary:
-      'Finding, analyzing, and responding to technology solicitations — turning long RFP documents into clear requirements, solution maps, and proposals.',
-    focus: [
-      'RFP research',
-      'Solicitation analysis',
-      'Requirement extraction',
-      'Technical approach development',
-      'Proposal documentation',
-      'Solution mapping',
-      'Compliance requirements',
-      'Competitive positioning',
-    ],
-    problem:
-      'Public-sector and higher-education solicitations are long, detailed, and strict. Responding well means finding the right opportunities, extracting every requirement, understanding compliance obligations, and presenting a solution that maps clearly to what the buyer asked for — usually on a tight deadline.',
-    contribution: [
-      'Researched and identified relevant RFP opportunities in higher education and government technology.',
-      'Analyzed solicitations and extracted functional, technical, and compliance requirements.',
-      'Mapped requirements to solution capabilities to show coverage and highlight gaps.',
-      'Developed technical approach sections and supporting proposal documentation.',
-      'Researched clients and competitors to inform positioning.',
-      'Developed case studies to support proposals with relevant experience.',
-    ],
-    solution:
-      'A repeatable pre-sales approach: structured requirement extraction, a requirements-to-solution map, and proposal content — technical approach, positioning, and supporting case studies — built directly from what each solicitation asked for.',
-    ecosystem: ['RFP / procurement platforms', 'Higher Education', 'Government technology', 'Proposal documentation'],
-    outcomes: [
-      'Requirements captured systematically instead of read ad hoc.',
-      'Proposals structured around the buyer’s own requirements and evaluation criteria.',
-      'Reusable technical approach and case-study content for future bids.',
-      'Earlier visibility into compliance requirements and solution gaps.',
-    ],
-    deliverables: [
-      'Requirements matrix',
-      'Solution map',
-      'Technical approach',
-      'Proposal documentation',
-      'Case studies',
     ],
   },
 ]

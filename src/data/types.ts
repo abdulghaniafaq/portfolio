@@ -53,7 +53,8 @@ export interface CaseStudy {
   tagline: string
   domain: string
   role: string
-  period: string
+  /** Optional; the Project Period row is hidden when omitted. */
+  period?: string
   cover: CoverVariant
   summary: string
   focus: string[]
