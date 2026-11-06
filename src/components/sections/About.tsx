@@ -4,51 +4,110 @@ import { Icon } from '../ui/Icon'
 import { Reveal } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
 
+/* Three circles of radius R on an equilateral triangle; markers sit in each pair-only lens. */
+const R = 88
+const circles = [
+  { name: 'Business', cx: 160, cy: 100, fill: 'var(--color-ink)', opacity: 0.045, from: '0px, -28px', label: [160, 66] },
+  { name: 'Product', cx: 112, cy: 183, fill: 'var(--color-accent-500)', opacity: 0.1, from: '-28px, 18px', label: [80, 210] },
+  { name: 'Technology', cx: 208, cy: 183, fill: 'var(--color-ink)', opacity: 0.045, from: '28px, 18px', label: [240, 210] },
+] as const
+
+const overlaps = [
+  { n: 1, x: 124, y: 135, pair: 'Business × Product', text: 'Problems turned into a prioritized roadmap' },
+  { n: 2, x: 196, y: 135, pair: 'Business × Technology', text: 'Feasibility, process, and platform fit' },
+  { n: 3, x: 160, y: 197, pair: 'Product × Technology', text: 'User stories, backlog, and delivery' },
+]
+
 function IntersectionDiagram() {
-  const circles = [
-    { cx: 150, cy: 118, label: 'Business', lx: 150, ly: 62 },
-    { cx: 104, cy: 196, label: 'Product', lx: 68, ly: 236 },
-    { cx: 196, cy: 196, label: 'Technology', lx: 232, ly: 236 },
-  ]
   return (
     <figure className="rounded-2xl border border-line bg-surface p-6 shadow-card sm:p-8">
       <svg
-        viewBox="0 0 300 300"
-        className="mx-auto w-full max-w-[20rem]"
+        viewBox="0 0 320 290"
+        className="mx-auto w-full max-w-[22rem]"
         role="img"
-        aria-labelledby="venn-title"
+        aria-labelledby="venn-title venn-desc"
       >
         <title id="venn-title">Business, Product and Technology overlap; my work sits in the center.</title>
+        <desc id="venn-desc">
+          A Venn diagram of three overlapping circles. Numbered markers 1 to 3 sit where two circles overlap and are
+          explained in the list below. The center, where all three overlap, is where requirements become products.
+        </desc>
+
         {circles.map((c) => (
           <circle
-            key={c.label}
+            key={c.name}
+            className="venn-circle"
             cx={c.cx}
             cy={c.cy}
-            r="78"
-            fill="var(--color-ink)"
-            fillOpacity="0.035"
+            r={R}
+            fill={c.fill}
+            fillOpacity={c.opacity}
             stroke="var(--color-line-strong)"
             strokeWidth="1.25"
+            style={{ ['--from' as string]: c.from }}
           />
         ))}
+
         {circles.map((c) => (
           <text
-            key={`${c.label}-t`}
-            x={c.lx}
-            y={c.ly}
+            key={`${c.name}-t`}
+            className="venn-marker fill-ink text-[13px] font-medium"
+            x={c.label[0]}
+            y={c.label[1]}
             textAnchor="middle"
-            className="fill-ink text-[13px] font-medium"
           >
-            {c.label}
+            {c.name}
           </text>
         ))}
-        <circle cx="150" cy="170" r="20" fill="var(--color-accent-500)" fillOpacity="0.14" />
-        <circle cx="150" cy="170" r="6" fill="var(--color-accent-600)" />
+
+        {overlaps.map((o) => (
+          <g key={o.n} className="venn-marker">
+            <circle cx={o.x} cy={o.y} r="9.5" fill="var(--color-surface)" stroke="var(--color-line-strong)" strokeWidth="1.25" />
+            <text x={o.x} y={o.y + 3.6} textAnchor="middle" className="fill-ink font-mono text-[10px] font-medium">
+              {o.n}
+            </text>
+          </g>
+        ))}
+
+        {/* Center: all three */}
+        <g className="venn-marker">
+          <circle className="venn-ping" cx="160" cy="155" r="13" fill="var(--color-accent-500)" />
+          <circle cx="160" cy="155" r="13" fill="var(--color-accent-500)" fillOpacity="0.16" />
+          <circle cx="160" cy="155" r="6" fill="var(--color-accent-600)" />
+        </g>
       </svg>
-      <figcaption className="mt-4 text-center text-sm text-muted">
-        <span className="font-medium text-ink">Business × Product × Technology</span>
-        <br />
-        The space where requirements become products.
+
+      <figcaption className="mt-6">
+        <p className="text-center text-sm font-medium text-ink">Business × Product × Technology</p>
+        <ol className="mt-5 space-y-3 border-t border-line pt-5">
+          {overlaps.map((o) => (
+            <li key={o.n} className="flex items-start gap-3 text-sm">
+              <span
+                aria-hidden="true"
+                className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full border border-line-strong font-mono text-[0.6875rem] font-medium text-ink"
+              >
+                {o.n}
+              </span>
+              <span className="text-muted">
+                <span className="font-medium text-ink">{o.pair}</span>
+                <span aria-hidden="true"> · </span>
+                <span className="sr-only">: </span>
+                {o.text}
+              </span>
+            </li>
+          ))}
+          <li className="flex items-start gap-3 text-sm">
+            <span aria-hidden="true" className="mt-0.5 grid size-5 shrink-0 place-items-center">
+              <span className="size-3 rounded-full bg-accent-600 ring-4 ring-accent-500/20" />
+            </span>
+            <span className="text-muted">
+              <span className="font-medium text-ink">All three</span>
+              <span aria-hidden="true"> · </span>
+              <span className="sr-only">: </span>
+              Where requirements become shipped products
+            </span>
+          </li>
+        </ol>
       </figcaption>
     </figure>
   )

@@ -135,6 +135,27 @@
   animation: dash-flow 1.6s linear infinite;
 }
 
+/* Hero canvas: progress bar inside the card that is currently being worked on */
+@keyframes card-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.card-fill {
+  transform-origin: left;
+  animation: card-fill var(--fill-ms, 1100ms) linear forwards;
+}
+
+/* The hero animation's pause button freezes every CSS animation inside it */
+[data-paused='true'] .flow-line,
+[data-paused='true'] .pulse-dot,
+[data-paused='true'] .card-fill {
+  animation-play-state: paused;
+}
+
 @keyframes pulse-dot {
   0%,
   100% {
@@ -148,6 +169,41 @@
   animation: pulse-dot 2.4s ease-in-out infinite;
 }
 
+/* About: Venn diagram. Circles drift together once the card scrolls into view, then the markers appear. */
+.venn-circle {
+  transform: translate(var(--from, 0px, 0px));
+  transition: transform 1200ms var(--ease-out-soft) 200ms;
+}
+.venn-marker {
+  opacity: 0;
+  transition: opacity 600ms ease 1000ms;
+}
+.reveal.is-visible .venn-circle {
+  transform: none;
+}
+.reveal.is-visible .venn-marker {
+  opacity: 1;
+}
+@keyframes venn-ping {
+  from {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  to {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.venn-ping {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+}
+/* Two pulses once visible, then stillness, so it never runs longer than ~5s */
+.reveal.is-visible .venn-ping {
+  animation: venn-ping 2.4s ease-out 1.6s 2;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -159,6 +215,20 @@
   }
   .flow-line,
   .pulse-dot {
+    animation: none;
+  }
+  .card-fill {
+    animation: none;
+  }
+  .venn-circle {
+    transform: none;
+    transition: none;
+  }
+  .venn-marker {
+    opacity: 1;
+    transition: none;
+  }
+  .venn-ping {
     animation: none;
   }
   *,

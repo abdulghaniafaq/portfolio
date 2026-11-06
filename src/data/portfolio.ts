@@ -169,7 +169,7 @@ export const roles: Role[] = [
     location: 'Delaware, United States',
     domains: ['LMS', 'CMS', 'Web Development Products'],
     summary:
-      'Bridged business needs and product delivery for LMS, CMS, and web development products — taking on backlog and requirements ownership while overseeing RFP/RFQ cycles.',
+      'Bridged business needs and product delivery for LMS, CMS, and web development products while overseeing RFP/RFQ cycles.',
     areas: [
       {
         icon: 'workflow',
@@ -177,13 +177,6 @@ export const roles: Role[] = [
         impact:
           'Collaborating with technical, design, and delivery teams to validate product feasibility, define solution scope, and keep proposals accurate and competitive.',
         items: ['Feasibility validation', 'Solution scope definition', 'Cross-functional coordination'],
-      },
-      {
-        icon: 'kanban',
-        title: 'Backlog & Requirements Ownership',
-        impact:
-          'Taking ownership of backlog management, requirement documentation, and cross-functional coordination while transitioning into a Product Owner capacity.',
-        items: ['Backlog management', 'Requirement documentation', 'Product Owner transition'],
       },
       {
         icon: 'file',
@@ -277,13 +270,13 @@ export const roles: Role[] = [
   },
   {
     title: 'Business Analyst',
-    subtitle: 'Insurance (Nigeria Market) · E-Learning · RPA Automation',
+    subtitle: 'Insurance (Nigeria Market) · E-Learning',
     company: 'SYMB Technologies Pvt Ltd.',
     period: 'May 2023 — Jul 2024',
     location: 'India',
-    domains: ['Insurance', 'E-Learning', 'RPA'],
+    domains: ['Insurance', 'E-Learning'],
     summary:
-      'Elicited and documented requirements across three simultaneous products, and led business analysis for an RPA initiative automating AP invoice processing for a financial services client.',
+      'Elicited and documented requirements across three simultaneous products in insurance and e-learning.',
     areas: [
       {
         icon: 'clipboard',
@@ -294,17 +287,6 @@ export const roles: Role[] = [
           'Technical specifications',
           'User stories',
           '95% on-time status reporting',
-        ],
-      },
-      {
-        icon: 'cpu',
-        title: 'RPA Business Analysis',
-        impact:
-          'Leading analysis for a UiPath RPA initiative automating AP invoice processing for a mid-sized financial services client.',
-        items: [
-          'UiPath (RPA)',
-          '500+ monthly transactions',
-          '20% reduction in manual processing steps',
         ],
       },
       {
