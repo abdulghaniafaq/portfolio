@@ -302,7 +302,7 @@ export const caseStudies: CaseStudy[] = [
     tagline: 'AI-Powered Higher Education Product',
     domain: 'Higher Education · AI',
     role: 'Business Analyst / Product Owner',
-    period: '[Project Period]',
+    period: 'Jun 2026 — Present',
     cover: 'network',
     summary:
       'Analyzing and shaping an AI-powered product for higher education — from feature discovery to a groomed, demo-ready backlog.',
@@ -349,7 +349,7 @@ export const caseStudies: CaseStudy[] = [
     tagline: 'Digital Accessibility & PDF Accessibility Platform',
     domain: 'Digital Accessibility',
     role: 'Business Analyst',
-    period: '[Project Period]',
+    period: 'Jun 2026 — Present',
     cover: 'document',
     summary:
       'Researching the accessibility market and product landscape to identify feature gaps, evaluate vendors, and recommend where the platform should go next.',

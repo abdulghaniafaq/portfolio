@@ -64,7 +64,7 @@ export function CaseStudyPage() {
               {[
                 { label: 'Domain', value: study.domain },
                 { label: 'My role', value: study.role },
-                { label: 'Period', value: study.period },
+                { label: 'Project Period', value: study.period },
                 { label: 'Ecosystem', value: study.ecosystem.slice(0, 3).join(', ') },
               ].map((row) => (
                 <div key={row.label}>
