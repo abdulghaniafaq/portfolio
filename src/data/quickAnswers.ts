@@ -194,7 +194,7 @@ export const quickAnswers: QuickAnswer[] = [
       'how does he decide what to build first',
     ],
     answer:
-      'At ABM, he maintains a 12-month product roadmap with engineering and prioritizes work sprint by sprint. At InnovationM, he used MoSCoW prioritization while turning more than 40 gathered requirements into FRDs and user stories.',
+      'At ABM, he built a 12-month product roadmap with engineering and revisits its scope and priorities every sprint, and he brings strategic decisions to executive leadership. On EDRO, he turned competitor and market research into prioritized recommendations on where the platform should go next. At InnovationM, he used MoSCoW prioritization while turning more than 40 gathered requirements into FRDs and user stories.',
     actions: [experience],
   },
   {
@@ -210,7 +210,7 @@ export const quickAnswers: QuickAnswer[] = [
       'client facing experience',
     ],
     answer:
-      'At ABM, he aligns business goals with C-suite and client stakeholders and has surfaced 7 strategic decisions for executive leadership. At SYMB, he held more than 50 stakeholder calls over 14 months to gather requirements for three products. At InnovationM, he ran stakeholder interviews and workshops.',
+      'At ABM, he aligns business goals with C-suite and client stakeholders and brings strategic decisions to executive leadership. At SYMB, he held more than 50 stakeholder calls over 14 months to gather requirements for three products. At InnovationM, he ran stakeholder interviews and workshops.',
     actions: [experience],
   },
   {
@@ -467,7 +467,7 @@ export const quickAnswers: QuickAnswer[] = [
       'proof of impact',
     ],
     answer:
-      'Highlights include more than three years of experience, at least four product launches for global clients, more than 50 stakeholder calls to elicit requirements, and 7 strategic decisions surfaced for executive leadership. Other results: about a 10% month-over-month gain in RFP pipeline efficiency, 30% fewer wireframe revision cycles and 95% on-time status reporting at SYMB, and 100% acceptance-criteria alignment at InnovationM.',
+      'Highlights include more than three years of experience, at least four product launches for global clients, more than 50 stakeholder calls to elicit requirements, and two higher-education SaaS products owned end to end. Other results: about a 10% month-over-month gain in RFP pipeline efficiency, 30% fewer wireframe revision cycles and 95% on-time status reporting at SYMB, and 100% acceptance-criteria alignment at InnovationM.',
     actions: [experience],
   },
 

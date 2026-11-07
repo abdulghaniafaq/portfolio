@@ -42,7 +42,7 @@ export const profile: Profile = {
     { value: '3', suffix: '+', label: 'Years in business analysis, product, and project roles' },
     { value: '4', suffix: '+', label: 'Product launches for global clients' },
     { value: '50', suffix: '+', label: 'Stakeholder calls to elicit requirements' },
-    { value: '7', label: 'Strategic decisions surfaced for executive leadership' },
+    { value: '2', label: 'Higher-education SaaS products owned end to end' },
   ],
 
   domains: ['Higher Education', 'EdTech', 'LMS', 'CMS', 'Accessibility', 'AI'],
@@ -151,8 +151,8 @@ export const roles: Role[] = [
         icon: 'workflow',
         title: 'Product Strategy & Roadmap',
         impact:
-          'Consolidating five separate sources into one feature specification that put seven key strategic decisions in front of executive leadership, and keeping a 12-month roadmap realistic by revisiting scope and priorities with engineering every sprint.',
-        items: ['One specification from 5 sources', '7 decisions for executive leadership', '12-month product roadmap', 'Sprint-level prioritization'],
+          'Setting product direction by turning market and competitor research into prioritized recommendations, building a 12-month roadmap with engineering and revisiting its scope every sprint to keep it realistic, and bringing key strategic decisions to executive leadership.',
+        items: ['Competitor & market analysis', 'Executive decision support', '12-month product roadmap', 'Sprint-level prioritization'],
       },
       {
         icon: 'search',
