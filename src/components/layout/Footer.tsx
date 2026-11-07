@@ -8,12 +8,12 @@ function SocialLink({ icon, label, href }: { icon: IconName; label: string; href
   const inner = (
     <>
       <Icon name={icon} size={16} className="shrink-0" />
-      <span className="min-w-0 truncate">
+      <span className="min-w-0 [overflow-wrap:anywhere]">
         <Value>{label}</Value>
       </span>
     </>
   )
-  const cls = 'flex w-full min-w-0 items-center gap-2.5 text-sm'
+  const cls = 'flex min-h-9 w-full min-w-0 items-center gap-2.5 py-1 text-sm'
   return href ? (
     <a href={href} className={`${cls} text-white/75 transition-colors hover:text-white`}>
       {inner}
@@ -41,7 +41,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {navLinks.map((l) => (
                 <li key={l.href}>
-                  <Link to={`/#${l.href}`} className="text-sm text-white/75 transition-colors hover:text-white">
+                  <Link to={`/#${l.href}`} className="inline-flex min-h-9 items-center py-1 text-sm text-white/75 transition-colors hover:text-white">
                     {l.label}
                   </Link>
                 </li>
@@ -64,7 +64,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright © 2026 {profile.name}</p>
-          <a href="#main" className="inline-flex items-center gap-1.5 transition-colors hover:text-white">
+          <a href="#main" className="inline-flex min-h-9 items-center gap-1.5 py-1 transition-colors hover:text-white">
             Back to top
             <Icon name="arrowUpRight" size={14} className="-rotate-45" />
           </a>

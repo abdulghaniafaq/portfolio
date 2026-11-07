@@ -20,12 +20,12 @@ export function Hero() {
         <div className="grid items-center gap-16 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
             <Reveal className="flex flex-wrap items-center gap-2">
-              <p className="eyebrow inline-flex items-center gap-2.5 rounded-full border border-line bg-surface/70 px-3.5 py-1.5 text-[0.6875rem] text-muted">
+              <p className="eyebrow inline-flex items-center gap-2.5 rounded-full border border-line bg-surface/70 px-3.5 py-1.5 text-xs text-muted">
                 <span className="size-1.5 shrink-0 rounded-full bg-accent-500" aria-hidden="true" />
                 <span className="hidden sm:inline">{hero.eyebrow}</span>
                 <span className="sm:hidden">{profile.shortTitle.replace(' | ', ' · ')}</span>
               </p>
-              <p className="eyebrow inline-flex items-center gap-2 rounded-full border border-success/35 bg-success/10 px-3.5 py-1.5 text-[0.6875rem] font-medium text-success">
+              <p className="eyebrow inline-flex items-center gap-2 rounded-full border border-success/35 bg-success/10 px-3.5 py-1.5 text-xs font-medium text-success">
                 <span className="pulse-dot size-1.5 shrink-0 rounded-full bg-success" aria-hidden="true" />
                 {availability}
               </p>

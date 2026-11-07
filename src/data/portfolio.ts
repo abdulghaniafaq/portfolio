@@ -50,7 +50,7 @@ export const profile: Profile = {
   contact: {
     email: 'ghaniabdul712@gmail.com',
     linkedin: 'https://www.linkedin.com/in/abdulghaniafaq/',
-    location: 'Delhi, India · Open to remote work globally',
+    location: 'Uttar Pradesh, India · Open to remote or onsite roles · Open to relocating within India',
   },
 }
 
@@ -151,8 +151,8 @@ export const roles: Role[] = [
         icon: 'workflow',
         title: 'Product Strategy & Roadmap',
         impact:
-          'Synthesizing 5 disparate sources into a unified feature specification that surfaced 7 pivotal strategic decisions for executive leadership, and maintaining a 12-month roadmap with engineering.',
-        items: ['12-month product roadmap', 'Feature specification', '7 strategic decisions surfaced', 'Sprint-level prioritization'],
+          'Consolidating five separate sources into one feature specification that put seven key strategic decisions in front of executive leadership, and keeping a 12-month roadmap realistic by revisiting scope and priorities with engineering every sprint.',
+        items: ['One specification from 5 sources', '7 decisions for executive leadership', '12-month product roadmap', 'Sprint-level prioritization'],
       },
       {
         icon: 'search',

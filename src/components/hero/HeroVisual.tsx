@@ -130,7 +130,7 @@ export function HeroVisual() {
     <div ref={ref} data-paused={paused} className="relative mx-auto w-full max-w-[34rem] select-none">
       <div aria-hidden="true">
         {/* Floating label: the intersection */}
-        <div className="absolute -top-5 left-6 z-20 flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs text-ink-soft shadow-lift">
+        <div className="absolute -top-5 left-6 z-20 flex max-w-[calc(100%-2rem)] flex-wrap items-center gap-x-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs text-ink-soft shadow-lift">
           <span className="font-medium text-ink">Business</span>
           <span className="text-accent-600">×</span>
           <span className="font-medium text-ink">Product</span>

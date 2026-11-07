@@ -5,11 +5,11 @@ import { Icon, type IconName } from './Icon'
 type Variant = 'primary' | 'secondary' | 'ghost' | 'inverse'
 
 const base =
-  'group inline-flex items-center justify-center gap-2 rounded-full font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out active:translate-y-px'
+  'group inline-flex items-center justify-center gap-2 rounded-full text-center font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out active:translate-y-px'
 
 const sizes = {
-  md: 'h-11 px-5 text-[0.9375rem]',
-  lg: 'h-12 px-6 text-base',
+  md: 'min-h-11 px-5 py-2 text-[0.9375rem]',
+  lg: 'min-h-12 px-6 py-2.5 text-base',
 }
 
 const variants: Record<Variant, string> = {

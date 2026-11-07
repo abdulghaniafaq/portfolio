@@ -24,6 +24,25 @@ export interface Profile {
   }
 }
 
+/** A button shown under a quick answer. */
+export type AnswerAction =
+  | { type: 'link'; label: string; href: string }
+  | { type: 'resume' }
+  | { type: 'email' }
+  | { type: 'linkedin' }
+
+/** One ready-made answer for the "Quick answers" panel (src/data/quickAnswers.ts). */
+export interface QuickAnswer {
+  id: string
+  group: string
+  /** The question as shown in the browse list and as the visitor's message when picked. */
+  question: string
+  /** Other ways of asking it. Used only for matching, never shown. */
+  alsoAskedAs: string[]
+  answer: string
+  actions: AnswerAction[]
+}
+
 export interface Principle {
   icon: IconName
   title: string

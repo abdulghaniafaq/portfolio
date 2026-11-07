@@ -88,7 +88,7 @@ function IntersectionDiagram() {
               >
                 {o.n}
               </span>
-              <span className="text-muted">
+              <span className="min-w-0 text-muted [overflow-wrap:anywhere]">
                 <span className="font-medium text-ink">{o.pair}</span>
                 <span aria-hidden="true"> · </span>
                 <span className="sr-only">: </span>
@@ -100,7 +100,7 @@ function IntersectionDiagram() {
             <span aria-hidden="true" className="mt-0.5 grid size-5 shrink-0 place-items-center">
               <span className="size-3 rounded-full bg-accent-600 ring-4 ring-accent-500/20" />
             </span>
-            <span className="text-muted">
+            <span className="min-w-0 text-muted [overflow-wrap:anywhere]">
               <span className="font-medium text-ink">All three</span>
               <span aria-hidden="true"> · </span>
               <span className="sr-only">: </span>

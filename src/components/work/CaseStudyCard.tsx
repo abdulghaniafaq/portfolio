@@ -11,7 +11,7 @@ export function CaseStudyCard({ study, index }: { study: CaseStudy; index: numbe
           variant={study.cover}
           className="aspect-[16/9] transition-transform duration-500 ease-out group-hover:scale-[1.02]"
         />
-        <span className="absolute top-4 left-4 rounded-full border border-line bg-surface/90 px-2.5 py-1 font-mono text-[0.6875rem] text-muted backdrop-blur">
+        <span className="absolute top-4 left-4 rounded-full border border-line bg-surface/90 px-2.5 py-1 font-mono text-xs text-muted backdrop-blur">
           {String(index + 1).padStart(2, '0')}
         </span>
         <span className="absolute top-4 right-4 rounded-full border border-line bg-surface/90 px-2.5 py-1 text-xs text-ink-soft backdrop-blur">
@@ -29,7 +29,7 @@ export function CaseStudyCard({ study, index }: { study: CaseStudy; index: numbe
         </h3>
         <p className="mt-3 leading-relaxed text-pretty text-muted">{study.summary}</p>
 
-        <dl className="mt-6 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 border-t border-line pt-5 text-sm">
+        <dl className="mt-6 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-2 border-t border-line pt-5 text-sm">
           <dt className="text-muted">Role</dt>
           <dd className="text-ink">{study.role}</dd>
           <dt className="text-muted">Focus</dt>

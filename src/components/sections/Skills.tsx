@@ -16,8 +16,8 @@ function SkillCard({ group, featured }: { group: SkillGroup; featured: boolean }
           : 'border-line bg-surface shadow-card hover:border-line-strong hover:shadow-lift'
       }`}
     >
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
           <span
             className={`grid size-10 place-items-center rounded-xl ${
               featured ? 'bg-white/10 text-accent-400' : 'bg-sunken text-ink group-hover:bg-accent-50 group-hover:text-accent-600'
@@ -36,7 +36,7 @@ function SkillCard({ group, featured }: { group: SkillGroup; featured: boolean }
         {group.skills.map((skill) => (
           <li
             key={skill}
-            className={`rounded-lg border px-3 py-1.5 text-sm ${
+            className={`min-w-0 rounded-lg border px-3 py-1.5 text-sm [overflow-wrap:anywhere] ${
               featured ? 'border-white/12 bg-white/5 text-white/85' : 'border-line bg-paper text-ink-soft'
             }`}
           >

@@ -22,6 +22,8 @@
   --color-panel-hover: #343842;
 
   --color-success: #15803d;
+  /* Edge of text fields: 3.5:1 against the page and 3.8:1 against white (WCAG 1.4.11 asks for 3:1). */
+  --color-field: #7d838d;
 
   /* Single accent: ember. 600 is AA (≥4.5:1) on paper, white and sunken; 400 is AA on ink. */
   --color-accent-50: #fdf1ea;
@@ -65,6 +67,7 @@
   --color-panel: #171a20;
   --color-panel-hover: #20242b;
   --color-success: #4ade80;
+  --color-field: #6b7280; /* 3.7:1 on cards, 4:1 on the page */
 
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 1px 1px rgb(0 0 0 / 0.3);
   --shadow-lift: 0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px -12px rgb(0 0 0 / 0.6);
@@ -73,13 +76,38 @@
 
 /* ── Base ──────────────────────────────────────────────────── */
 @layer base {
+  /* Big monitors: scale everything up (the page is built in rem) so text and spacing stay comfortable. */
+  @media (min-width: 1920px) {
+    html {
+      font-size: 112.5%;
+    }
+  }
+  @media (min-width: 2560px) {
+    html {
+      font-size: 125%;
+    }
+  }
+  @media (min-width: 3200px) {
+    html {
+      font-size: 150%;
+    }
+  }
+
   html {
+    /* Keeps the layout from shifting when the page scrollbar disappears (menu or chat panel open) */
+    scrollbar-gutter: stable;
+    /* When keyboard focus scrolls an element into view, keep it clear of the fixed header and the chat button (WCAG 2.4.11) */
+    scroll-padding-block: 5rem;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
 
+  /* A word longer than its box wraps instead of pushing the page sideways (large text, tiny screens). */
+  body {
+    overflow-wrap: break-word;
+  }
   body {
     background-color: var(--color-paper);
     color: var(--color-ink);
@@ -92,10 +120,14 @@
     color: var(--color-ink);
   }
 
-  /* Anchored sections clear the sticky navbar */
-  section[id] {
-    scroll-margin-top: 5rem;
+  /* Grids default to one column that is allowed to shrink. Without this, a single-column grid cannot get narrower
+     than its widest content, which pushes the page sideways when text is enlarged or the screen is very narrow.
+     Explicit grid-cols-* classes still win (utilities layer). */
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
   }
+
+  /* (the offset for the fixed header comes from `scroll-padding-block` on html, so sections need no margin of their own) */
 
   :focus-visible {
     outline: 2px solid var(--color-accent-600);
@@ -120,11 +152,11 @@
     width: 100%;
     max-width: 76rem;
     margin-inline: auto;
-    padding-inline: 1.25rem;
+    padding-inline: max(1.25rem, env(safe-area-inset-left)) max(1.25rem, env(safe-area-inset-right));
   }
   @media (min-width: 640px) {
     .container-page {
-      padding-inline: 2rem;
+      padding-inline: max(2rem, env(safe-area-inset-left)) max(2rem, env(safe-area-inset-right));
     }
   }
 
@@ -207,7 +239,8 @@
   }
 }
 .pulse-dot {
-  animation: pulse-dot 2.4s ease-in-out infinite;
+  /* Two pulses (under 5 seconds), then still: nothing blinks forever (WCAG 2.2.2) */
+  animation: pulse-dot 2.4s ease-in-out 2;
 }
 
 /* About: Venn diagram. Circles drift together once the card scrolls into view, then the markers appear. */

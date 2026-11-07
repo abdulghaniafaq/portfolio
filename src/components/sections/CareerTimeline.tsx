@@ -57,7 +57,7 @@ export function CareerTimeline() {
 
       <div aria-hidden="true" className={`mt-4 grid ${cols}`}>
         <span className="hidden sm:block" />
-        <div className="relative h-5 font-mono text-[0.6875rem] text-muted">
+        <div className="relative h-5 font-mono text-xs text-muted">
           <span className="absolute left-0">{Math.floor(t.from / 12)}</span>
           {t.years.map((y) => (
             <span key={y.year} className="absolute -translate-x-1/2" style={{ left: left(y.at) }}>

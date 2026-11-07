@@ -50,7 +50,7 @@ export function Process() {
           {processSteps.map((step, i) => (
             <Reveal as="li" key={step.number} delay={i * 80} className="group relative lg:px-3">
               <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-[background-color,border-color] duration-300 hover:border-accent-400/50 hover:bg-white/[0.06] lg:border-transparent lg:bg-transparent lg:p-0 lg:hover:bg-transparent">
-                <div className="flex items-center gap-4 lg:flex-col lg:items-center lg:gap-6">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 lg:flex-col lg:items-center lg:gap-6">
                   <span
                     className={`relative z-10 grid size-[3.25rem] shrink-0 place-items-center rounded-full border font-mono text-sm transition-colors duration-300 ${
                       i === 0
@@ -65,7 +65,7 @@ export function Process() {
                 <p className="mt-4 leading-relaxed text-white/65 lg:text-center">{step.body}</p>
                 <ul className="mt-5 flex flex-wrap gap-1.5 lg:justify-center">
                   {step.outputs.map((o) => (
-                    <li key={o} className="rounded-md border border-white/10 px-2 py-1 font-mono text-[0.6875rem] text-white/60">
+                    <li key={o} className="rounded-md border border-white/10 px-2 py-1 font-mono text-xs text-white/60">
                       {o}
                     </li>
                   ))}

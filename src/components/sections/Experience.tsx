@@ -24,12 +24,12 @@ function RoleCard({ role }: { role: Role }) {
           { icon: 'calendar' as const, label: 'Period', value: role.period },
           { icon: 'mapPin' as const, label: 'Location', value: role.location },
         ].map((row) => (
-          <div key={row.label} className="flex items-center gap-3">
+          <div key={row.label} className="flex flex-wrap items-center gap-x-3 gap-y-0.5">
             <dt className="flex w-24 shrink-0 items-center gap-2 text-muted">
               <Icon name={row.icon} size={15} />
               {row.label}
             </dt>
-            <dd className="text-ink">
+            <dd className="min-w-0 grow basis-[9rem] text-ink">
               <Value>{row.value}</Value>
             </dd>
           </div>
@@ -51,7 +51,7 @@ function RoleCard({ role }: { role: Role }) {
 
 function AreaNode({ area, index, isLast }: { area: ExperienceArea; index: number; isLast: boolean }) {
   return (
-    <Reveal as="li" delay={index * 60} className="group relative grid grid-cols-[2.75rem_1fr] gap-5 sm:gap-7">
+    <Reveal as="li" delay={index * 60} className="group relative grid grid-cols-[2.75rem_minmax(0,1fr)] gap-5 sm:gap-7">
       {/* Rail */}
       <div className="relative flex flex-col items-center">
         <span className="relative z-10 grid size-11 place-items-center rounded-full border border-line-strong bg-paper text-ink transition-colors group-hover:border-accent-500 group-hover:text-accent-600">
@@ -63,14 +63,14 @@ function AreaNode({ area, index, isLast }: { area: ExperienceArea; index: number
       <article className={isLast ? '' : 'pb-12'}>
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 pt-2">
           <span className="font-mono text-xs text-accent-600">{String(index + 1).padStart(2, '0')}</span>
-          <h4 className="text-xl font-semibold tracking-tight text-ink">{area.title}</h4>
+          <h4 className="min-w-0 text-xl font-semibold tracking-tight text-ink [overflow-wrap:anywhere]">{area.title}</h4>
         </div>
         <p className="mt-2 max-w-xl leading-relaxed text-pretty text-muted">{area.impact}</p>
         <ul className="mt-5 grid gap-x-6 gap-y-2 sm:grid-cols-2">
           {area.items.map((item) => (
             <li key={item} className="flex items-start gap-2.5 text-[0.9375rem] text-ink-soft">
               <span aria-hidden="true" className="mt-2.5 h-px w-3 shrink-0 bg-accent-500" />
-              {item}
+              <span className="min-w-0 [overflow-wrap:anywhere]">{item}</span>
             </li>
           ))}
         </ul>

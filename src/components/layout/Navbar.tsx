@@ -84,13 +84,13 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 max-h-dvh overflow-y-auto overscroll-contain transition-[background-color,border-color,backdrop-filter] duration-300 ${
         solid
           ? 'border-b border-line/80 bg-paper/85 backdrop-blur-md'
           : 'border-b border-transparent bg-transparent'
       }`}
     >
-      <nav aria-label="Primary" className="container-page flex h-16 items-center justify-between gap-6">
+      <nav aria-label="Primary" className="container-page flex min-h-16 flex-wrap items-center justify-between gap-x-4 gap-y-1 py-2">
         <Logo />
 
         <ul className="hidden items-center gap-1 lg:flex">
@@ -176,7 +176,7 @@ export function Navbar() {
         id="mobile-menu"
         ref={panelRef}
         hidden={!open}
-        className="h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-paper lg:hidden"
+        className="max-h-[calc(100dvh-4rem)] min-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-paper lg:hidden"
       >
         <div className="container-page flex h-full flex-col py-8">
           <ul className="flex flex-col">
