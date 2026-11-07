@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react'
+import { QuietBoundary } from '../components/chat/QuietBoundary'
 import { About } from '../components/sections/About'
 import { Contact } from '../components/sections/Contact'
 import { Experience } from '../components/sections/Experience'
@@ -26,9 +27,11 @@ export function HomePage() {
       <Process />
       <Toolkit />
       <Contact />
-      <Suspense fallback={null}>
-        <QuickAnswers />
-      </Suspense>
+      <QuietBoundary>
+        <Suspense fallback={null}>
+          <QuickAnswers />
+        </Suspense>
+      </QuietBoundary>
     </>
   )
 }

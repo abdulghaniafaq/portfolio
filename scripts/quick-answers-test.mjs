@@ -301,6 +301,43 @@ ok('unsure questions get "Did you mean" suggestions that include the right answe
 ok('totally unrelated questions get no suggestions', ["What's the weather today?", 'asdfghjkl', 'sing me a song'].every((q) => (sugg(q) ?? []).length === 0), JSON.stringify(["What's the weather today?", 'asdfghjkl', 'sing me a song'].map(sugg)))
 ok('suggestions never exceed three and are real entries', ['stock market', 'a long question about experience and many random other words here'].every((q) => (sugg(q) ?? []).length <= 3))
 
+// ── robustness: nothing a visitor types may crash the matcher or take long ──────────────────────────
+const nasty = [
+  '', ' ', '\n\t  \n', '.', '?', '???!!!', '12345678901234567890', 'a'.repeat(5000), 'word '.repeat(2000), '<script>alert(1)</script>', '<img src=x onerror=alert(1)>',
+  '"><svg/onload=alert(1)>', "'; DROP TABLE users; --", '{{7*7}} ${7*7} %s %d %n', '.*+?^${}()|[]\\', '(?:(a+)+)+$', 'null', 'undefined', 'NaN', '__proto__', 'constructor', 'toString', 'hasOwnProperty',
+  '\u0000\u0001\u0002', '\u200b\u200b\u200b', 'مرحبا كيف حالك', 'こんにちは、彼の経験について教えてください', '👨‍💻📈🚀', 'ＨＥＬＬＯ　ＷＯＲＬＤ', 'e\u0301xperience', 'İstanbul ǅ ß', '🏳️‍🌈'.repeat(300),
+  'a\u0300'.repeat(1000), 'experience '.repeat(500), 'salary'.repeat(300), '../../etc/passwd', 'javascript:alert(1)', 'file:///etc/passwd', '%00%0a%0d', '\\\\\\\\',
+]
+let threw = 0
+let slowest = 0
+const badShapes = []
+for (const q of nasty) {
+  const t0 = performance.now()
+  try {
+    const r = matcher.match(q)
+    const okKind = ['match', 'none', 'greeting', 'thanks'].includes(r.kind)
+    if (!okKind) badShapes.push(`${JSON.stringify(q.slice(0, 20))} → ${r.kind}`)
+    if (r.kind === 'match' && (!r.entry?.answer || r.related.length > 2 || r.related.some((e) => e.id === r.entry.id))) badShapes.push(`${JSON.stringify(q.slice(0, 20))} → bad match shape`)
+    if (r.kind === 'none' && (!Array.isArray(r.suggestions) || r.suggestions.length > 3)) badShapes.push(`${JSON.stringify(q.slice(0, 20))} → bad none shape`)
+  } catch (e) {
+    threw++
+    badShapes.push(`${JSON.stringify(q.slice(0, 20))} threw ${e.message}`)
+  }
+  slowest = Math.max(slowest, performance.now() - t0)
+}
+ok(`${nasty.length} hostile or odd inputs never throw and always return a valid result`, threw === 0 && badShapes.length === 0, badShapes.join(' | '))
+ok(`worst-case input is handled quickly (slowest ${slowest.toFixed(0)}ms, limit 250ms)`, slowest < 250, `${slowest.toFixed(0)}ms`)
+// properties
+ok('matching is deterministic', ['what tools does he use', 'xyz', 'Tell about his overall experience'].every((q) => JSON.stringify(matcher.match(q)) === JSON.stringify(matcher.match(q))))
+ok('every question matches itself exactly, in any case and with punctuation changed', entries.every((e) => [e.question, e.question.toUpperCase(), e.question.toLowerCase(), e.question.replace(/[?.]/g, ''), `  ${e.question}  `].every((q) => { const r = matcher.match(q); return r.kind === 'match' && r.entry.id === e.id })), entries.filter((e) => ![e.question, e.question.toUpperCase(), e.question.toLowerCase(), e.question.replace(/[?.]/g, '')].every((q) => { const r = matcher.match(q); return r.kind === 'match' && r.entry.id === e.id })).map((e) => e.id).join(','))
+ok('every answer offers 0-2 related questions and never itself, with real ids', entries.every((e) => { const r = matcher.match(e.question); return r.kind === 'match' && r.related.length === 2 && r.related.every((x) => x.id !== e.id && entries.includes(x)) }))
+ok('greetings in several forms are recognised', ['Hi', 'hi!', 'Hello', 'hello there'.replace(' there', ''), 'Hey', 'Good evening', 'good afternoon!', 'Namaste', 'hola'].every((g) => matcher.match(g).kind === 'greeting'))
+ok('thanks in several forms are recognised', ['Thanks', 'thank you', 'Thank you!', 'thx', 'cheers', 'ok', 'got it'].every((g) => matcher.match(g).kind === 'thanks'))
+ok('a greeting plus a real question is answered, not swallowed', matcher.match('hi, what is his current role').kind === 'match')
+ok('no answer contains the placeholder markers or leftover template text', entries.every((e) => !/\[[A-Z][a-zA-Z ]+\]|TODO|lorem|undefined|\bNaN\b/i.test(e.answer + e.question)))
+ok('the location is consistent in every answer (no old Delhi / "globally" wording)', !/Delhi, India|globally|Delhi\b/.test(entries.map((e) => e.answer).join(' ').replace(/Jamia Hamdard University, New Delhi/g, '')), '')
+ok('every action has a usable shape', entries.every((e) => e.actions.every((a) => (a.type === 'link' && a.label && a.href) || ['resume', 'email', 'linkedin'].includes(a.type))))
+
 ok('greetings and thanks are recognised', top('Hello!') === 'greeting' && top('hi') === 'greeting' && top('Good morning') === 'greeting' && top('thanks') === 'thanks' && top('thank you!') === 'thanks')
 ok('empty input is handled', top('') === 'none' && top('   ') === 'none')
 const kora = matcher.match('Tell me about KORA')

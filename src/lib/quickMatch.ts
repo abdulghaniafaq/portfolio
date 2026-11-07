@@ -40,7 +40,7 @@ const SYN: Record<string, string[]> = {
   earn: ['salary'], earning: ['salary'], earnings: ['salary'], income: ['salary'], wage: ['salary'], lpa: ['salary'], rate: ['salary'],
   sponsorship: ['visa'], permit: ['visa'], authorization: ['visa'], authorisation: ['visa'], citizenship: ['visa'], immigration: ['visa'], citizen: ['visa'],
   notice: ['availability', 'join', 'start'], available: ['availability', 'join'], availability: ['available', 'join'], 
-  immediate: ['immediately', 'join'], immediately: ['join', 'availability'], openings: ['available'],
+  immediate: ['immediately', 'join'], immediately: ['join', 'availability'], openings: ['available'], free: ['available', 'availability'],
   relocate: ['relocation'], relocating: ['relocation'], move: ['relocation'], moving: ['relocation'], abroad: ['relocation'], overseas: ['relocation'],
   remote: ['remote', 'location'], onsite: ['remote', 'location'], hybrid: ['remote', 'location'], wfh: ['remote'], city: ['location', 'based'], country: ['location', 'based'],
   live: ['location', 'based'], lives: ['location', 'based'], located: ['location', 'based'], based: ['location'],
@@ -101,7 +101,7 @@ const CANON_GROUPS: Record<string, string[]> = {
   process: ['approach', 'method', 'methodology', 'framework', 'workflow', 'procedure'],
   document: ['documents', 'documentation', 'docs'],
   dashboard: ['dashboards', 'reporting', 'reports'],
-  company: ['organization', 'organisation', 'firm', 'org', 'employer', 'employers'],
+  company: ['organization', 'organisation', 'firm', 'org', 'employer', 'employers', 'employed', 'employs', 'employing'],
   key: ['main', 'core', 'primary', 'top', 'major', 'chief'],
   seek: ['looking', 'targeting', 'seeking', 'pursuing', 'aiming', 'hoping', 'wants'],
   strength: ['strengths', 'strongest', 'shine', 'shines', 'talent', 'talents', 'forte', 'superpower'],
@@ -118,9 +118,12 @@ const CANON_GROUPS: Record<string, string[]> = {
 /** Generic words: they appear in many questions without saying what the question is about. */
 const ENTITIES = new Set(['innovationm', 'symb', 'abm', 'kora', 'edro', 'jira', 'figma', 'confluence', 'wordpress', 'edx', 'wcag', 'ada', 'cspo', 'btech'])
 const WEAK = new Set(
-  ['good', 'great', 'well', 'familiar', 'comfortable', 'skilled', 'capable', 'use', 'used', 'using', 'work', 'working', 'daily', 'often', 'really', 'much', 'many', 'long', 'recent', 'recently', 'new', 'expectation', 'expect', 'open', 'handle', 'experience', 'sure', 'person', 'people', 'build', 'built', 'create', 'created', 'speak', 'speaks', 'write', 'writes', 'written', 'take', 'make', 'makes', 'won', 'win', 'senior', 'time', 'today', 'tomorrow', 'key', 'job', 'join', 'joined', 'joining', 'start', 'started', 'market', 'learn', 'learning'],
+  ['good', 'great', 'well', 'familiar', 'comfortable', 'skilled', 'capable', 'use', 'used', 'using', 'work', 'working', 'daily', 'often', 'really', 'much', 'many', 'long', 'recent', 'recently', 'new', 'expectation', 'expect', 'open', 'handle', 'experience', 'sure', 'person', 'people', 'build', 'built', 'create', 'created', 'speak', 'speaks', 'write', 'writes', 'written', 'take', 'make', 'makes', 'won', 'win', 'senior', 'time', 'today', 'tomorrow', 'month', 'months', 'key', 'job', 'join', 'joined', 'joining', 'start', 'started', 'market', 'learn', 'learning'],
 )
-const CANON: Record<string, string> = {}
+/** Lookup that ignores inherited names, so typing "constructor" or "toString" cannot hit Object.prototype. */
+const own = <T,>(table: Record<string, T>, key: string): T | undefined => (Object.prototype.hasOwnProperty.call(table, key) ? table[key] : undefined)
+
+const CANON: Record<string, string> = Object.create(null)
 for (const [head, members] of Object.entries(CANON_GROUPS)) for (const m of members) CANON[m] = head
 
 /**
@@ -137,7 +140,7 @@ const CONCEPTS: { tag: string; test: RegExp; unless?: RegExp }[] = [
   { tag: 'zvisa', test: /right to work|authori[sz]ed to work|eligible to work|legally (allowed|able)|work (in|within) the (us|usa|uk|country)|work visa|green card|h1b|h-1b/ },
   { tag: 'zleaving', test: /\bwhy\b.{0,35}\b(leave|left|leaving|quit|resign|resigned|switch|switching|chang(e|ed|ing)|moving on)\b|reason for (leaving|(a )?(job|career) change|chang(e|ing) (jobs?|compan)|the switch|switching)|looking for a (new|another)/ },
   { tag: 'zoutcome', test: /came out of|what came of|what changed|what happened (as|after)|resulted (in|from)|\bresults? of\b|end result|pay.?off/ },
-  { tag: 'zavailable', test: /notice period|\b(can|could|when (can|could|will|would|is|does)|how soon|how quickly|how fast|how early)\b.{0,18}\b(start|join|joining|begin|onboard)\b|\bavailab|\bimmediate|\b(is|are)\b.{0,20}\b(looking|open) (for|to)\b.{0,12}\b(work|job|jobs|opportunit|opportunities|role|roles|position|positions|employment)\b|currently looking/, unless: /\bwhy\b/ },
+  { tag: 'zavailable', test: /notice period|\b(can|could|when (can|could|will|would|is|does)|how soon|how quickly|how fast|how early)\b.{0,18}\b(start|join|joining|begin|onboard)\b|\bavailab|\bimmediate|\b(is|are)\b.{0,20}\b(looking|open) (for|to)\b.{0,12}\b(work|job|jobs|opportunit|opportunities|role|roles|position|positions|employment)\b|currently looking|\b(is|are) (he|abdul) free\b|free to (start|join)/, unless: /\bwhy\b/ },
   { tag: 'zlocation', test: /where\b.{0,15}\b(live|lives|stay|based|located)\b|\bbased\b|\bremote|work(ing)? from home|\bwfh\b|\bhybrid\b|\bon.?site\b|\b(what|which) (city|country)\b|which (part|state|region|area)\b.{0,15}\b(he|abdul|india)\b|where (is|does) (he|abdul) (from|come from)|hometown|native place|from the office|work(ing)? from (the )?office/ },
   { tag: 'zwho', test: /^\s*(who is|who s|tell me about|about|introduce|intro to|bio of)\s+(abdul|him|he|this|the|a)\s*(bit\s+)?(candidate|person|applicant|abdul|him)?\s*$|^\s*(who is|who s) (abdul|he|this (person|candidate))|what (does|do) (he|abdul) do( for a living)?\s*$|\bintro(duction)? to (abdul|him)\b|know who (he|abdul) is|tell me (a bit )?about (this|the) (candidate|person|applicant)|who (abdul|he) is\b|\b(profile|snapshot|bio|introduction|intro)\b.{0,20}\b(abdul|him|his|candidate|person)\b|\b(abdul s|his|the candidate s)\s+(profile|bio)\b|\b(tell|give|share|say|show)\b.{0,12}\b(something|a bit|a little|anything|more)\b.{0,12}\babout\b.{0,12}\b(abdul|him|the candidate|this person)\b/ },
   { tag: 'zhire', test: /stand(s)? out|stands apart|\bapart\b|different from|reason to hire|right (candidate|fit|person)|good fit|best fit|bring to (our|the|a) team|value (he|abdul|does)|why\b.{0,15}\b(hire|choose|pick|select)|hire (him|abdul)|sell me|why should|why would we|\brecommend (him|abdul)|case for hiring|^\s*why (him|abdul)\s*$|\bconvince me\b|strong candidate/ },
@@ -148,7 +151,7 @@ const CONCEPTS: { tag: string; test: RegExp; unless?: RegExp }[] = [
   { tag: 'zyears', test: /how (many )?years|years of|how (long|experienced|senior)|how much experience|total experience|how many yrs/ },
   { tag: 'zprocess', test: /how (does|do|did) (he|abdul) (work|operate|go about|gather|elicit|collect|capture|approach|tackle|plan|start)|(he|abdul) works\b|working (style|method)|way of working|ways? of working/ },
   { tag: 'zshowwork', test: /(show|see|view|share) (me )?(his|abdul s) (work|projects)|examples? of (his|abdul s) work|work samples?|what (has|did|have) (he|abdul) (worked on|work on|built|done)|(is|was) (he|abdul) working on|work (he|abdul) (has|have|did|had) (done|worked|built)|products? (he|abdul) (has |have |had )?(worked on|built|managed|shipped|launched)/, unless: /\b(at|on|for|with|in)\s+(innovationm|symb|abm|kora|edro)\b/ },
-  { tag: 'zcurrent', test: /at the moment|right now|\bcurrently\b|\bpresent\b|\bnow\b|\bcurrent\b|\blatest\b|these days|\btoday\b|nowadays/, unless: /looking for|open to|availab|notice|\bjoin/ },
+  { tag: 'zcurrent', test: /at the moment|right now|\bcurrently\b|\bpresent\b|\bnow\b|\bcurrent\b|\blatest\b|these days|\btoday\b|nowadays/, unless: /looking for|open to|availab|notice|\bjoin|\bfree\b/ },
   { tag: 'zdaily', test: /day to day|daily|every day|typical day|day.?to.?day|responsibilit|\bduties\b|what does he own/ },
 ]
 
@@ -180,6 +183,7 @@ const words = (s: string): string[] =>
     .replace(/\be[- ]?learning\b/g, 'elearning')
     .replace(/\bhr[- ]tech\b/g, 'hrtech')
     .replace(/\bpre[- ]?sales\b/g, 'presales')
+    .replace(/\bthese days\b|\bnowadays\b|\bat the moment\b|\bat present\b/g, 'now')
     .replace(/\beducation(al)? technolog(y|ies)\b/g, 'edtech')
     .replace(/[^a-z0-9+#\s-]/g, ' ')
     .replace(/(\w)-(?=\w)/g, '$1 ')
@@ -232,7 +236,7 @@ export interface Matcher {
 const tokensOf = (text: string): string[] => [
   ...words(text)
     .filter((w) => !STOP.has(w))
-    .map((w) => stem(CANON[w] ?? w)),
+    .map((w) => stem(own(CANON, w) ?? w)),
   ...conceptsOf(text),
 ]
 
@@ -279,8 +283,8 @@ export function createMatcher(entries: QuickAnswer[]): Matcher {
     }
     for (const w of words(query)) {
       const terms = new Set<string>()
-      if (!STOP.has(w)) terms.add(stem(CANON[w] ?? w))
-      for (const syn of SYN[w] ?? []) terms.add(stem(CANON[syn] ?? syn))
+      if (!STOP.has(w)) terms.add(stem(own(CANON, w) ?? w))
+      for (const syn of own(SYN, w) ?? []) terms.add(stem(own(CANON, syn) ?? syn))
       if (terms.size === 0) continue
       // Typo tolerance: an unseen word within one edit (two for long words) of a known term.
       if (![...terms].some((t) => df.has(t)) && w.length >= 7) {

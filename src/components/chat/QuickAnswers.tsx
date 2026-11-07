@@ -221,6 +221,8 @@ export function QuickAnswers() {
                   onClick={() => {
                     setMessages([])
                     setView('chat')
+                    // The button that had focus disappears, so hand focus to the input instead of losing it.
+                    requestAnimationFrame(() => inputRef.current?.focus())
                   }}
                   aria-label="Start over"
                   className="grid size-9 place-items-center rounded-full border border-line-strong transition-colors hover:border-ink"
