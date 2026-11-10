@@ -13,7 +13,7 @@ export function CareerTimeline() {
 
   return (
     <Reveal className="mt-14 rounded-2xl border border-line bg-surface p-6 shadow-card sm:p-8">
-      <h3 className="eyebrow text-muted">Career at a glance</h3>
+      <h2 className="eyebrow text-muted">Career at a glance</h2>
 
       <ol className="mt-6 space-y-6">
         {t.companies.map((company) => {

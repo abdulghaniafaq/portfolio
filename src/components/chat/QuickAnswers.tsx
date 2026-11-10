@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { fallbackAnswer, greeting, quickAnswers, quickGroups, suggestedIds, thanksReply } from '../../data/quickAnswers'
 import type { AnswerAction, QuickAnswer } from '../../data/types'
 import { contactLinks, resume } from '../../lib/contact'
@@ -62,6 +62,7 @@ function Action({ action, onNavigate }: { action: AnswerAction; onNavigate: () =
 }
 
 export function QuickAnswers() {
+  const { key: routeKey } = useLocation()
   const [open, setOpen] = useState(false)
   const [view, setView] = useState<'chat' | 'browse'>('chat')
   const [messages, setMessages] = useState<Message[]>([])
@@ -77,6 +78,9 @@ export function QuickAnswers() {
     setOpen(false)
     if (returnFocus) requestAnimationFrame(() => launcherRef.current?.focus())
   }
+
+  // The panel now lives on every page, so a route change (a link in an answer, or browser Back) closes it.
+  useEffect(() => setOpen(false), [routeKey])
 
   useEffect(() => {
     if (open && view === 'chat') inputRef.current?.focus()
@@ -178,10 +182,11 @@ export function QuickAnswers() {
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((o) => !o)}
-        className={`fixed right-[max(1rem,env(safe-area-inset-right))] bottom-[max(1rem,env(safe-area-inset-bottom))] z-[56] inline-flex h-12 items-center gap-2 rounded-full bg-ink px-5 text-sm font-medium text-paper shadow-lift transition-colors hover:bg-accent-600 sm:right-[max(1.5rem,env(safe-area-inset-right))] sm:bottom-[max(1.5rem,env(safe-area-inset-bottom))] ${open ? '[@media(max-height:30rem)]:hidden' : ''}`}
+        className={`fixed right-[max(1rem,env(safe-area-inset-right))] bottom-[max(1rem,env(safe-area-inset-bottom))] z-[56] inline-flex h-12 items-center justify-center gap-2 rounded-full bg-ink px-5 text-sm font-medium text-paper shadow-lift ring-1 ring-white/25 forced-colors:border print:hidden max-sm:w-12 max-sm:px-0 [[data-menu-open]_&]:hidden transition-colors hover:bg-accent-600 sm:right-[max(1.5rem,env(safe-area-inset-right))] sm:bottom-[max(1.5rem,env(safe-area-inset-bottom))] ${open ? '[@media(max-height:30rem)]:hidden' : ''}`}
       >
         <Icon name={open ? 'close' : 'message'} size={18} />
-        Quick answers
+        {/* Phones get an icon-only button so it covers less of the page; the name stays for screen readers. */}
+        <span className="max-sm:sr-only">Quick answers</span>
       </button>
 
       {open && (

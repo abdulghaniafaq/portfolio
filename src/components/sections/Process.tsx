@@ -25,7 +25,7 @@ export function Process() {
       <div className="container-page relative">
         <SectionHeading
           id="approach-title"
-          index="05"
+          index="01"
           label="How I Work"
           tone="dark"
           align="split"
@@ -60,7 +60,7 @@ export function Process() {
                   >
                     {step.number}
                   </span>
-                  <h3 className="text-xl font-semibold tracking-tight lg:text-center">{step.title}</h3>
+                  <h3 className="min-w-0 text-xl font-semibold tracking-tight [overflow-wrap:anywhere] lg:text-center">{step.title}</h3>
                 </div>
                 <p className="mt-4 leading-relaxed text-white/65 lg:text-center">{step.body}</p>
                 <ul className="mt-5 flex flex-wrap gap-1.5 lg:justify-center">

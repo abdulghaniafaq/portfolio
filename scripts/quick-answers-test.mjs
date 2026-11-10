@@ -25,9 +25,15 @@ ok('ids are unique', new Set(ids).size === ids.length, ids.filter((x, i) => ids.
 ok('every entry has a question, answer, group and at least one action', entries.every((e) => e.question && e.answer && e.group && e.actions.length > 0))
 ok('every group is listed in quickGroups', entries.every((e) => quickGroups.includes(e.group)), entries.filter((e) => !quickGroups.includes(e.group)).map((e) => e.id).join(','))
 ok('suggested ids exist', suggestedIds.every((id) => ids.includes(id)))
-const validHref = /^\/($|#(about|experience|work|skills|approach|toolkit|contact)$|work\/(kora|edro|ai-edtech-research)$)/
-const badLinks = entries.flatMap((e) => e.actions.filter((a) => a.type === 'link' && !validHref.test(a.href)).map((a) => `${e.id}:${a.href}`))
-ok('every link points to a real section or page', badLinks.length === 0, badLinks.join(','))
+// Links must point at a real page (taken from the site's own data), optionally with a section id that exists on it.
+const pages = new Set(['/', ...data.navLinks.map((l) => l.to), ...data.caseStudies.map((c) => `/work/${c.slug}`)])
+const sectionIds = { '/about': ['approach'], '/skills': ['toolkit'] }
+const validHref = (href) => {
+  const [path, id] = href.split('#')
+  return pages.has(path) && (id === undefined || (sectionIds[path] ?? []).includes(id))
+}
+const badLinks = entries.flatMap((e) => e.actions.filter((a) => a.type === 'link' && !validHref(a.href)).map((a) => `${e.id}:${a.href}`))
+ok('every link points to a real page (and section) on the site', badLinks.length === 0, badLinks.join(','))
 ok('answers are 2 to 700 characters', entries.every((e) => e.answer.length >= 20 && e.answer.length <= 700), entries.filter((e) => e.answer.length > 700).map((e) => `${e.id}:${e.answer.length}`).join(','))
 
 const siteText = JSON.stringify([data.profile, data.about, data.principles, data.roles, data.caseStudies, data.skillGroups, data.processSteps, data.tools]).replace(/[^A-Za-z0-9+%$.\- ]/g, ' ')

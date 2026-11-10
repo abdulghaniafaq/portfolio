@@ -45,8 +45,8 @@ export function CaseStudyPage() {
       <header className="container-page">
         <Reveal>
           <Link
-            to="/#work"
-            className="group inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-ink"
+            to="/work"
+            className="group inline-flex min-h-9 items-center gap-2 text-sm text-muted transition-colors hover:text-ink"
           >
             <Icon name="arrowRight" size={15} className="rotate-180 transition-transform group-hover:-translate-x-0.5" />
             All work
@@ -158,7 +158,7 @@ export function CaseStudyPage() {
             className="group flex flex-col gap-6 rounded-2xl bg-panel p-8 text-white transition-colors hover:bg-panel-hover sm:flex-row sm:items-center sm:justify-between sm:p-10"
           >
             <div>
-              <p className="eyebrow text-white/50">Next case study</p>
+              <p className="eyebrow text-white/60">Next case study</p>
               <p className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{next.name}</p>
               <p className="mt-1 text-white/65">{next.tagline}</p>
             </div>
@@ -169,7 +169,7 @@ export function CaseStudyPage() {
         </Reveal>
         <Reveal delay={80} className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-lg text-ink-soft">Hiring for a similar role?</p>
-          <ButtonLink to="/#contact" variant="secondary" icon="arrowUpRight">
+          <ButtonLink to="/contact" variant="secondary" icon="arrowUpRight">
             Let’s Talk
           </ButtonLink>
         </Reveal>

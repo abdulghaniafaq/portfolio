@@ -117,7 +117,7 @@ export function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="py-20 sm:py-28">
       <div className="container-page">
-        <SectionHeading id="about-title" index="01" label="About" title="From business problem to shipped product" />
+        <SectionHeading as="h1" id="about-title" index="01" label="About" title="From business problem to shipped product" />
 
         <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
@@ -138,7 +138,7 @@ export function About() {
               ))}
             </Reveal>
             <Reveal delay={140} className="mt-9">
-              <h3 className="eyebrow text-muted">Focus areas</h3>
+              <h2 className="eyebrow text-muted">Focus areas</h2>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {about.focusAreas.map((area) => (
                   <li key={area}>
@@ -153,7 +153,7 @@ export function About() {
         {/* What I bring */}
         <div className="mt-24">
           <Reveal>
-            <h3 className="text-2xl font-semibold tracking-tight text-ink">What I Bring</h3>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">What I Bring</h2>
           </Reveal>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {principles.map((p, i) => (
@@ -165,7 +165,7 @@ export function About() {
                     </span>
                     <span className="font-mono text-xs text-muted">0{i + 1}</span>
                   </div>
-                  <h4 className="mt-8 text-lg font-semibold tracking-tight text-ink">{p.title}</h4>
+                  <h3 className="mt-8 text-lg font-semibold tracking-tight text-ink">{p.title}</h3>
                   <p className="mt-2 text-[0.9375rem] leading-relaxed text-muted">{p.body}</p>
                 </article>
               </Reveal>

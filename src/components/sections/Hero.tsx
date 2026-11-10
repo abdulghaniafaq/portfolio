@@ -52,13 +52,13 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={240} className="mt-9 flex flex-wrap gap-3">
-              <ButtonLink to="/#work" size="lg">
+              <ButtonLink to="/work" size="lg">
                 View My Work
               </ButtonLink>
               <ButtonLink to={resume.href} download={resume.filename} external size="lg" variant="secondary" icon="download">
                 Download Resume
               </ButtonLink>
-              <ButtonLink to="/#contact" size="lg" variant="ghost" icon="arrowUpRight">
+              <ButtonLink to="/contact" size="lg" variant="ghost" icon="arrowUpRight">
                 Let’s Connect
               </ButtonLink>
             </Reveal>

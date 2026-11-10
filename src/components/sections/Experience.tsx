@@ -15,7 +15,7 @@ function RoleCard({ role }: { role: Role }) {
           Current
         </p>
       )}
-      <h3 className="mt-4 text-2xl leading-tight font-semibold tracking-tight text-ink">{role.title}</h3>
+      <h2 className="mt-4 text-2xl leading-tight font-semibold tracking-tight text-ink">{role.title}</h2>
       {role.subtitle && <p className="mt-1 text-lg text-ink-soft">{role.subtitle}</p>}
 
       <dl className="mt-6 space-y-2.5 border-t border-line pt-5 text-sm">
@@ -63,7 +63,7 @@ function AreaNode({ area, index, isLast }: { area: ExperienceArea; index: number
       <article className={isLast ? '' : 'pb-12'}>
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 pt-2">
           <span className="font-mono text-xs text-accent-600">{String(index + 1).padStart(2, '0')}</span>
-          <h4 className="min-w-0 text-xl font-semibold tracking-tight text-ink [overflow-wrap:anywhere]">{area.title}</h4>
+          <h3 className="min-w-0 text-xl font-semibold tracking-tight text-ink [overflow-wrap:anywhere]">{area.title}</h3>
         </div>
         <p className="mt-2 max-w-xl leading-relaxed text-pretty text-muted">{area.impact}</p>
         <ul className="mt-5 grid gap-x-6 gap-y-2 sm:grid-cols-2">
@@ -84,10 +84,11 @@ export function Experience() {
     <section
       id="experience"
       aria-labelledby="experience-title"
-      className="border-y border-line bg-sunken/60 py-20 sm:py-28"
+      className="border-t border-line bg-sunken/60 py-20 sm:py-28"
     >
       <div className="container-page">
         <SectionHeading
+          as="h1"
           id="experience-title"
           index="02"
           label="Experience"

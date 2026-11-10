@@ -15,11 +15,11 @@
  */
 import type { AnswerAction, QuickAnswer } from './types'
 
-const experience: AnswerAction = { type: 'link', label: 'See experience', href: '/#experience' }
-const contactSection: AnswerAction = { type: 'link', label: 'Go to contact', href: '/#contact' }
-const skillsSection: AnswerAction = { type: 'link', label: 'See skills', href: '/#skills' }
-const toolsSection: AnswerAction = { type: 'link', label: 'See tools', href: '/#toolkit' }
-const aboutSection: AnswerAction = { type: 'link', label: 'Read about Abdul', href: '/#about' }
+const experience: AnswerAction = { type: 'link', label: 'See experience', href: '/experience' }
+const contactSection: AnswerAction = { type: 'link', label: 'Go to contact', href: '/contact' }
+const skillsSection: AnswerAction = { type: 'link', label: 'See skills', href: '/skills' }
+const toolsSection: AnswerAction = { type: 'link', label: 'See tools', href: '/skills#toolkit' }
+const aboutSection: AnswerAction = { type: 'link', label: 'Read about Abdul', href: '/about' }
 const reachOut: AnswerAction[] = [{ type: 'email' }, { type: 'linkedin' }]
 const resumeAndContact: AnswerAction[] = [{ type: 'resume' }, ...reachOut]
 
@@ -374,7 +374,7 @@ export const quickAnswers: QuickAnswer[] = [
     alsoAskedAs: ['his portfolio', 'case studies', 'selected work', 'show me his work', 'list of projects', 'what has he built', 'what has he worked on', 'what is he working on', 'work samples'],
     answer:
       'His selected work includes KORA, an AI chatbot platform for higher education; EDRO, a digital accessibility compliance platform; and an AI and EdTech product research project. Each one has its own case study page.',
-    actions: [{ type: 'link', label: 'See selected work', href: '/#work' }],
+    actions: [{ type: 'link', label: 'See selected work', href: '/work' }],
   },
   {
     id: 'accessibility',
@@ -583,7 +583,7 @@ export const quickAnswers: QuickAnswer[] = [
     ],
     answer:
       'Abdul starts with the business problem, the users and the stakeholders, then analyzes requirements, workflows and gaps. From there he defines requirements, user stories, features and priorities, works with engineering, design, QA and marketing, and supports delivery and improvement afterwards. Typical outputs are stakeholder maps, process flows, gap analyses, user stories and prioritized backlogs.',
-    actions: [{ type: 'link', label: 'See how he works', href: '/#approach' }],
+    actions: [{ type: 'link', label: 'See how he works', href: '/about#approach' }],
   },
   {
     id: 'analytics',
@@ -730,7 +730,7 @@ export const quickAnswers: QuickAnswer[] = [
       'why the switch',
     ],
     answer:
-      'Abdul moved on in search of growth and better career opportunities, which were limited at his previous organization. His roles and dates are in the Experience section, and he is happy to talk it through. You can reach him by email or on LinkedIn.',
+      'Abdul moved on in search of growth and better career opportunities, which were limited at his previous organization. His roles and dates are on the Experience page, and he is happy to talk it through. You can reach him by email or on LinkedIn.',
     actions: [experience, ...reachOut],
   },
 ]

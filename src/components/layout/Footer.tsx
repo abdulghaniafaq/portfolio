@@ -26,9 +26,10 @@ function SocialLink({ icon, label, href }: { icon: IconName; label: string; href
 export function Footer() {
   return (
     <footer className="on-dark bg-panel text-white">
-      <div className="container-page py-16">
+      {/* Extra bottom space: the fixed "Quick answers" button rests here when the page is scrolled to the end, instead of covering "Back to top". */}
+      <div className="container-page pt-16 pb-24">
         <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-6">
+          <div className="md:col-span-12 lg:col-span-5">
             <p className="text-xl font-semibold tracking-tight">{profile.name}</p>
             <p className="mt-1 text-sm text-white/60">{profile.shortTitle}</p>
             <p className="mt-6 max-w-sm font-serif text-2xl leading-snug text-white/90 italic">
@@ -36,12 +37,12 @@ export function Footer() {
             </p>
           </div>
 
-          <nav aria-label="Footer" className="md:col-span-3">
+          <nav aria-label="Footer" className="md:col-span-6 lg:col-span-3">
             <p className="eyebrow text-white/50">Navigate</p>
             <ul className="mt-4 space-y-2.5">
               {navLinks.map((l) => (
-                <li key={l.href}>
-                  <Link to={`/#${l.href}`} className="inline-flex min-h-9 items-center py-1 text-sm text-white/75 transition-colors hover:text-white">
+                <li key={l.to}>
+                  <Link to={l.to} className="inline-flex min-h-9 items-center py-1 text-sm text-white/75 transition-colors hover:text-white">
                     {l.label}
                   </Link>
                 </li>
@@ -49,7 +50,7 @@ export function Footer() {
             </ul>
           </nav>
 
-          <div className="min-w-0 md:col-span-3">
+          <div className="min-w-0 md:col-span-6 lg:col-span-4">
             <p className="eyebrow text-white/50">Connect</p>
             <ul className="mt-4 space-y-3">
               <li>

@@ -25,7 +25,7 @@ function SkillCard({ group, featured }: { group: SkillGroup; featured: boolean }
           >
             <Icon name={group.icon} size={19} />
           </span>
-          <h3 className="text-lg font-semibold tracking-tight">{group.title}</h3>
+          <h2 className="min-w-0 text-lg font-semibold tracking-tight [overflow-wrap:anywhere]">{group.title}</h2>
         </div>
         <span className={`font-mono text-xs ${featured ? 'text-white/50' : 'text-muted'}`}>
           {group.skills.length}
@@ -53,6 +53,7 @@ export function Skills() {
     <section id="skills" aria-labelledby="skills-title" className="py-20 sm:py-28">
       <div className="container-page">
         <SectionHeading
+          as="h1"
           id="skills-title"
           index="04"
           label="Skills"

@@ -11,7 +11,42 @@ export interface PageMeta {
 export const homeMeta: PageMeta = {
   path: '/',
   title: `${profile.name} — ${profile.shortTitle}`,
-  description: `${profile.name} is a Business Analyst and Associate Product Manager working across product strategy, requirements, backlog ownership, and delivery in Higher Education, EdTech, accessibility, and AI.`,
+  description: `${profile.name} is a Business Analyst and Associate Product Manager in Higher Education, EdTech, accessibility and AI: requirements, backlog ownership, delivery.`,
+}
+
+const page = (path: string, label: string, description: string): PageMeta => ({
+  path,
+  title: `${label} | ${profile.name}`,
+  description,
+})
+
+/** Section pages, in navigation order. */
+export const sectionMeta = {
+  about: page(
+    '/about',
+    'About',
+    `How ${profile.name}, a Business Analyst and Associate Product Manager, turns business needs into clear requirements and products teams can build.`,
+  ),
+  experience: page(
+    '/experience',
+    'Experience',
+    `Career timeline of ${profile.name}: Associate Product Manager at ABM Technologies & Consultancy Inc, after business analysis, pre-sales and operations roles.`,
+  ),
+  work: page(
+    '/work',
+    'Work & Case Studies',
+    `Case studies by ${profile.name}: products analyzed, shaped and brought to delivery in higher education, EdTech and AI.`,
+  ),
+  skills: page(
+    '/skills',
+    'Skills & Tools',
+    `Skills, tools and platforms of ${profile.name}, grouped by the work they support: product, business analysis, project operations and technology domains.`,
+  ),
+  contact: page(
+    '/contact',
+    'Contact',
+    `Contact ${profile.name} about Business Analyst and Product Manager roles. Email, LinkedIn and a downloadable resume.`,
+  ),
 }
 
 export const caseStudyMeta = (study: CaseStudy): PageMeta => ({
@@ -20,4 +55,4 @@ export const caseStudyMeta = (study: CaseStudy): PageMeta => ({
   description: study.summary,
 })
 
-export const allPages: PageMeta[] = [homeMeta, ...caseStudies.map(caseStudyMeta)]
+export const allPages: PageMeta[] = [homeMeta, ...Object.values(sectionMeta), ...caseStudies.map(caseStudyMeta)]

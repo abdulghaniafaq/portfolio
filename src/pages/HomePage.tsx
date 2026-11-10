@@ -1,37 +1,32 @@
-import { lazy, Suspense } from 'react'
-import { QuietBoundary } from '../components/chat/QuietBoundary'
-import { About } from '../components/sections/About'
-import { Contact } from '../components/sections/Contact'
-import { Experience } from '../components/sections/Experience'
+import { Navigate, useLocation } from 'react-router-dom'
+import { Explore } from '../components/sections/Explore'
 import { Hero } from '../components/sections/Hero'
-import { Process } from '../components/sections/Process'
-import { Skills } from '../components/sections/Skills'
-import { Toolkit } from '../components/sections/Toolkit'
-import { Work } from '../components/sections/Work'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+import { sectionIdFromHash } from '../lib/hash'
 import { homeMeta } from '../lib/seo'
 
-// The quick-answers panel and its answers load after the page, so they never delay first paint.
-const QuickAnswers = lazy(() => import('../components/chat/QuickAnswers').then((m) => ({ default: m.QuickAnswers })))
+// Before the site was split into pages, sections were reached with "/#about" and similar.
+// Shared or bookmarked links of that form are forwarded to the matching page.
+const legacySections = new Map([
+  ['about', '/about'],
+  ['experience', '/experience'],
+  ['work', '/work'],
+  ['skills', '/skills'],
+  ['toolkit', '/skills#toolkit'],
+  ['approach', '/about#approach'],
+  ['contact', '/contact'],
+])
 
 export function HomePage() {
   useDocumentMeta(homeMeta.title, homeMeta.description, { path: homeMeta.path })
+  const { hash } = useLocation()
+  const forward = legacySections.get(sectionIdFromHash(hash))
+  if (forward) return <Navigate to={forward} replace />
 
   return (
     <>
       <Hero />
-      <About />
-      <Experience />
-      <Work />
-      <Skills />
-      <Process />
-      <Toolkit />
-      <Contact />
-      <QuietBoundary>
-        <Suspense fallback={null}>
-          <QuickAnswers />
-        </Suspense>
-      </QuietBoundary>
+      <Explore />
     </>
   )
 }

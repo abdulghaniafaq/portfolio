@@ -55,11 +55,31 @@ export const profile: Profile = {
 }
 
 export const navLinks = [
-  { label: 'About', href: 'about' },
-  { label: 'Experience', href: 'experience' },
-  { label: 'Work', href: 'work' },
-  { label: 'Skills', href: 'skills' },
-  { label: 'Contact', href: 'contact' },
+  {
+    label: 'About',
+    to: '/about',
+    blurb: 'How I think about business problems, products and delivery, and the way I work.',
+  },
+  {
+    label: 'Experience',
+    to: '/experience',
+    blurb: 'Three years across business analysis, product management and project operations.',
+  },
+  {
+    label: 'Work',
+    to: '/work',
+    blurb: 'Case studies on products I’ve analyzed, helped shape and brought to delivery.',
+  },
+  {
+    label: 'Skills',
+    to: '/skills',
+    blurb: 'Skills and tools, grouped by the kind of work they support.',
+  },
+  {
+    label: 'Contact',
+    to: '/contact',
+    blurb: 'Hiring for a BA or PM role? Send a note or grab my resume.',
+  },
 ] as const
 
 /* ── About ─────────────────────────────────────────────────── */

@@ -21,12 +21,12 @@ export function CaseStudyCard({ study, index }: { study: CaseStudy; index: numbe
 
       <div className="flex flex-1 flex-col p-6 sm:p-7">
         <p className="text-sm text-accent-600">{study.tagline}</p>
-        <h3 className="mt-1.5 text-2xl font-semibold tracking-tight text-ink">
+        <h2 className="mt-1.5 text-2xl font-semibold tracking-tight text-ink">
           {/* Stretched link: the whole card is clickable, but only one link is announced */}
           <Link to={`/work/${study.slug}`} className="after:absolute after:inset-0 after:content-['']">
             {study.name}
           </Link>
-        </h3>
+        </h2>
         <p className="mt-3 leading-relaxed text-pretty text-muted">{study.summary}</p>
 
         <dl className="mt-6 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-2 border-t border-line pt-5 text-sm">

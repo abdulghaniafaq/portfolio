@@ -1,12 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { navLinks, profile } from '../../data/portfolio'
-import { useActiveSection } from '../../hooks/useActiveSection'
 import { resume } from '../../lib/contact'
 import { Icon } from '../ui/Icon'
 import { ThemeToggle } from '../ui/ThemeToggle'
-
-const sectionIds = navLinks.map((l) => l.href)
 
 export function Logo({ className = '' }: { className?: string }) {
   return (
@@ -28,8 +25,8 @@ export function Logo({ className = '' }: { className?: string }) {
 
 export function Navbar() {
   const { pathname } = useLocation()
-  const isHome = pathname === '/'
-  const active = useActiveSection(sectionIds, isHome)
+  // A case study (/work/kora) belongs to its parent page, Work.
+  const active = navLinks.find((l) => pathname === l.to || pathname.startsWith(`${l.to}/`))?.to
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const toggleRef = useRef<HTMLButtonElement>(null)
@@ -53,6 +50,8 @@ export function Navbar() {
     const focusables = () =>
       Array.from(panel?.querySelectorAll<HTMLElement>('a, button') ?? [])
     document.body.style.overflow = 'hidden'
+    // Lets the floating Quick answers button step aside while the full-screen menu is open.
+    document.documentElement.setAttribute('data-menu-open', '')
     focusables()[0]?.focus()
 
     const onKey = (e: KeyboardEvent) => {
@@ -76,6 +75,7 @@ export function Navbar() {
     document.addEventListener('keydown', onKey)
     return () => {
       document.body.style.overflow = ''
+      document.documentElement.removeAttribute('data-menu-open')
       document.removeEventListener('keydown', onKey)
     }
   }, [open])
@@ -84,7 +84,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 max-h-dvh overflow-y-auto overscroll-contain transition-[background-color,border-color,backdrop-filter] duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 print:absolute max-h-dvh overflow-y-auto overscroll-contain transition-[background-color,border-color,backdrop-filter] duration-300 ${
         solid
           ? 'border-b border-line/80 bg-paper/85 backdrop-blur-md'
           : 'border-b border-transparent bg-transparent'
@@ -95,12 +95,12 @@ export function Navbar() {
 
         <ul className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => {
-            const isActive = active === link.href
+            const isActive = active === link.to
             return (
-              <li key={link.href}>
+              <li key={link.to}>
                 <Link
-                  to={`/#${link.href}`}
-                  aria-current={isActive ? 'true' : undefined}
+                  to={link.to}
+                  aria-current={isActive ? 'page' : undefined}
                   className={`relative rounded-full px-3.5 py-2 text-sm transition-colors ${
                     isActive ? 'text-ink' : 'text-muted hover:text-ink'
                   }`}
@@ -137,8 +137,8 @@ export function Navbar() {
             <Icon name="download" size={17} />
           </a>
           <Link
-            to="/#contact"
-            className="group hidden h-10 items-center gap-2 rounded-full bg-ink px-4 text-sm font-medium text-paper transition-colors hover:bg-accent-600 sm:inline-flex"
+            to="/contact"
+            className="group hidden h-10 items-center gap-2 rounded-full bg-ink px-4 text-sm font-medium text-paper transition-colors hover:bg-accent-600 forced-colors:border sm:inline-flex"
           >
             Let’s Talk
             <Icon name="arrowUpRight" size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -181,9 +181,10 @@ export function Navbar() {
         <div className="container-page flex h-full flex-col py-8">
           <ul className="flex flex-col">
             {navLinks.map((link, i) => (
-              <li key={link.href} className="border-b border-line">
+              <li key={link.to} className="border-b border-line">
                 <Link
-                  to={`/#${link.href}`}
+                  to={link.to}
+                  aria-current={active === link.to ? 'page' : undefined}
                   className="flex items-baseline justify-between py-5 text-3xl font-semibold tracking-tight text-ink"
                 >
                   {link.label}
@@ -202,8 +203,8 @@ export function Navbar() {
               <Icon name="download" size={17} />
             </a>
             <Link
-              to="/#contact"
-              className="flex h-12 items-center justify-center gap-2 rounded-full bg-ink font-medium text-paper"
+              to="/contact"
+              className="flex h-12 items-center justify-center gap-2 rounded-full bg-ink font-medium text-paper forced-colors:border"
             >
               Let’s Talk
               <Icon name="arrowUpRight" size={17} />

@@ -5,20 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#f7f6f2" />
     <meta name="color-scheme" content="light dark" />
-    <!-- Sets the theme before first paint so dark-mode visitors never see a white flash. -->
+    <!-- Sets the theme before first paint so dark-mode visitors never see a white flash.
+         Reading the saved choice is wrapped on its own: some in-app browsers block storage, and that must
+         not stop the page from following the system setting. -->
     <script>
-      try {
-        var t = localStorage.getItem('theme')
-        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      ;(function () {
+        var t = null
+        try {
+          t = localStorage.getItem('theme')
+        } catch (e) {}
+        if (t !== 'light' && t !== 'dark') {
+          try {
+            t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          } catch (e) {
+            t = 'light'
+          }
+        }
         document.documentElement.dataset.theme = t
-        document.querySelector('meta[name="theme-color"]').content = t === 'dark' ? '#0d0f12' : '#f7f6f2'
-      } catch (e) {}
+        var m = document.querySelector('meta[name="theme-color"]')
+        if (m) m.content = t === 'dark' ? '#0d0f12' : '#f7f6f2'
+      })()
     </script>
 
     <title>Abdul Ghani Afaq — Business Analyst | Product Manager</title>
     <meta
       name="description"
-      content="Abdul Ghani Afaq is a Business Analyst and Associate Product Manager working across product strategy, requirements, backlog ownership, and delivery in Higher Education, EdTech, accessibility, and AI."
+      content="Abdul Ghani Afaq is a Business Analyst and Associate Product Manager in Higher Education, EdTech, accessibility and AI: requirements, backlog ownership, delivery."
     />
     <meta name="author" content="Abdul Ghani Afaq" />
     <link rel="canonical" href="%VITE_SITE_URL%/" />

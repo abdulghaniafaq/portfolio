@@ -1,9 +1,53 @@
 @import 'tailwindcss';
 
+/* ── Fallback fonts ────────────────────────────────────────── */
+/*  The page is drawn by JavaScript and the web fonts arrive after the first paint. These faces make the system   */
+/*  font take up the same space as Geist / Instrument Serif while they load, so text does not reflow when the     */
+/*  real fonts swap in (layout shift). Numbers are measured from the font files against the system font, using   */
+/*  the letters the site actually uses; they only apply where Arial / Times New Roman exist, elsewhere the next   */
+/*  font in the stack is used as before.                                                                          */
+@font-face {
+  font-family: 'Geist Fallback';
+  font-weight: 400;
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 104.61%;
+  ascent-override: 96.07%;
+  descent-override: 28.2%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Geist Fallback';
+  font-weight: 500;
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 107.1%;
+  ascent-override: 93.84%;
+  descent-override: 27.54%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Geist Fallback';
+  font-weight: 600 700;
+  src: local('Arial Bold'), local('Arial-BoldMT');
+  size-adjust: 103%;
+  ascent-override: 97.57%;
+  descent-override: 28.64%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Instrument Serif Fallback';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Times New Roman Italic'), local('TimesNewRomanPS-ItalicMT');
+  size-adjust: 87.71%;
+  ascent-override: 112.88%;
+  descent-override: 35.35%;
+  line-gap-override: 0%;
+}
+
 /* ── Design tokens ─────────────────────────────────────────── */
 @theme {
-  --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
+  --font-sans: 'Geist', 'Geist Fallback', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Instrument Serif', 'Instrument Serif Fallback', ui-serif, Georgia, serif;
   --font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
   /* Neutrals: warm paper + near-black ink */
@@ -21,7 +65,8 @@
   --color-panel: #111318;
   --color-panel-hover: #343842;
 
-  --color-success: #15803d;
+  /* Text on its own 10% tint (the availability tag): 5.8:1. The previous #15803d measured 4.06:1 there. */
+  --color-success: #166534;
   /* Edge of text fields: 3.5:1 against the page and 3.8:1 against white (WCAG 1.4.11 asks for 3:1). */
   --color-field: #7d838d;
 
@@ -40,38 +85,56 @@
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Tell the browser which scheme the SITE is in, so scrollbars, form controls and autofill match the page.
+   Without this, a visitor whose system is dark but who picked Light here would get dark scrollbars on a light page. */
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+/* Set for a moment by useTheme while the theme flips, so every element changes colour together.
+   Kept outside the Tailwind layers so this !important beats the transition utilities. */
+:root.theme-switching,
+:root.theme-switching *,
+:root.theme-switching *::before,
+:root.theme-switching *::after {
+  transition: none !important;
+}
+
 /* ── Dark theme ────────────────────────────────────────────── */
 /*  Applied by <html data-theme="dark">, set before first paint by the inline script in index.html. */
 /*  Only tokens change; components use tokens so nothing else needs a dark variant.               */
 /*  Measured contrast on the page/card/sunken surfaces: muted 7.4/6.8/6.5:1, accent-600 7.7/7.2:1,   */
 /*  success 11:1 (all above the 4.5:1 AA minimum).                                                 */
-:root[data-theme='dark'] {
-  color-scheme: dark;
+/* Screen only: a printout always uses the light palette (browsers drop backgrounds when printing, which would leave pale text on white paper). */
+@media not print {
+  :root[data-theme='dark'] {
+    color-scheme: dark;
 
-  --color-paper: #0d0f12;
-  --color-surface: #15181d;
-  --color-sunken: #1a1d23;
-  --color-line: #262a31;
-  --color-line-strong: #3a3f49;
-  --color-ink: #ecebe6;
-  --color-ink-soft: #c9cbd1;
-  --color-muted: #9aa1ad;
+    --color-paper: #0d0f12;
+    --color-surface: #15181d;
+    --color-sunken: #1a1d23;
+    --color-line: #262a31;
+    --color-line-strong: #3a3f49;
+    --color-ink: #ecebe6;
+    --color-ink-soft: #c9cbd1;
+    --color-muted: #9aa1ad;
 
-  --color-accent-50: #2a1810;
-  --color-accent-100: #3b2012;
-  --color-accent-400: #f2743a;
-  --color-accent-500: #ef6a2a;
-  --color-accent-600: #f7864f;
-  --color-accent-700: #fbab7e;
+    --color-accent-50: #2a1810;
+    --color-accent-100: #3b2012;
+    --color-accent-400: #f2743a;
+    --color-accent-500: #ef6a2a;
+    --color-accent-600: #f7864f;
+    --color-accent-700: #fbab7e;
 
-  --color-panel: #171a20;
-  --color-panel-hover: #20242b;
-  --color-success: #4ade80;
-  --color-field: #6b7280; /* 3.7:1 on cards, 4:1 on the page */
+    --color-panel: #171a20;
+    --color-panel-hover: #20242b;
+    --color-success: #4ade80;
+    --color-field: #6b7280; /* 3.7:1 on cards, 4:1 on the page */
 
-  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 1px 1px rgb(0 0 0 / 0.3);
-  --shadow-lift: 0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px -12px rgb(0 0 0 / 0.6);
-  --dot-color: rgb(255 255 255 / 0.06);
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 1px 1px rgb(0 0 0 / 0.3);
+    --shadow-lift: 0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px -12px rgb(0 0 0 / 0.6);
+    --dot-color: rgb(255 255 255 / 0.06);
+  }
 }
 
 /* ── Base ──────────────────────────────────────────────────── */
@@ -309,5 +372,32 @@
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Print / Save as PDF ───────────────────────────────────── */
+@media print {
+  /* Sections fade in as they scroll into view. A printout never scrolls, so show everything. */
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .venn-circle {
+    transform: none;
+    transition: none;
+  }
+  .venn-marker {
+    opacity: 1;
+    transition: none;
+  }
+  /* Browsers leave backgrounds out by default, which would print the white text of the dark bands on white paper. */
+  .bg-panel,
+  .bg-ink,
+  .bg-accent-400,
+  .bg-accent-500,
+  .bg-accent-600 {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }

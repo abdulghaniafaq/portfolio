@@ -55,18 +55,18 @@ export function Contact() {
       />
       <div className="container-page relative">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="min-w-0 lg:col-span-7">
+          <Reveal className="min-w-0 lg:col-span-6 xl:col-span-7">
             <p className="eyebrow flex items-center gap-3 text-muted">
-              <span className="text-accent-600">07</span>
+              <span className="text-accent-600">05</span>
               <span aria-hidden="true" className="h-px w-8 bg-line-strong" />
               Contact
             </p>
-            <h2
+            <h1
               id="contact-title"
-              className="mt-6 text-5xl leading-[1] font-semibold tracking-[-0.045em] text-balance text-ink sm:text-6xl lg:text-7xl"
+              className="mt-6 text-5xl leading-[1] font-semibold tracking-[-0.045em] text-balance text-ink sm:text-6xl xl:text-7xl"
             >
               Hiring for a BA or PM role? <span className="font-serif font-normal tracking-[-0.02em] text-accent-600 italic">Let’s talk.</span>
-            </h2>
+            </h1>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-pretty text-muted">
               I’m open to Business Analyst and Product Manager roles, especially in EdTech, higher
               education, AI, and accessibility. Send me a note or grab my resume, and I’ll get back to you.
@@ -89,7 +89,7 @@ export function Contact() {
             </div>
           </Reveal>
 
-          <Reveal delay={120} className="min-w-0 lg:col-span-5 lg:pt-16">
+          <Reveal delay={120} className="min-w-0 lg:col-span-6 lg:pt-16 xl:col-span-5">
             <div id="contact-details" className="space-y-3">
               <Detail icon="mail" label="Email" value={email.label} href={email.href} />
               <Detail icon="linkedin" label="LinkedIn" value={linkedin.label} href={linkedin.href} />

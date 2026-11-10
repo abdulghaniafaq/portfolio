@@ -5,18 +5,18 @@ import { Icon, type IconName } from './Icon'
 type Variant = 'primary' | 'secondary' | 'ghost' | 'inverse'
 
 const base =
-  'group inline-flex items-center justify-center gap-2 rounded-full text-center font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out active:translate-y-px'
+  'group inline-flex max-w-full items-center justify-center gap-2 rounded-full text-center font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out active:translate-y-px'
 
 const sizes = {
-  md: 'min-h-11 px-5 py-2 text-[0.9375rem]',
-  lg: 'min-h-12 px-6 py-2.5 text-base',
+  md: 'min-h-11 px-[min(1.25rem,5vw)] py-2 text-[0.9375rem]',
+  lg: 'min-h-12 px-[min(1.5rem,5vw)] py-2.5 text-base',
 }
 
 const variants: Record<Variant, string> = {
-  primary: 'bg-ink text-paper hover:bg-accent-600 shadow-card',
+  primary: 'bg-ink text-paper hover:bg-accent-600 shadow-card forced-colors:border',
   secondary: 'border border-line-strong bg-surface text-ink hover:border-ink',
   ghost: 'text-ink hover:text-accent-600',
-  inverse: 'bg-white text-ink-fixed hover:bg-accent-400',
+  inverse: 'bg-white text-ink-fixed hover:bg-accent-400 forced-colors:border',
 }
 
 interface ButtonLinkProps {

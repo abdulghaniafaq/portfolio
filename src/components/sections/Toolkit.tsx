@@ -4,12 +4,12 @@ import { Reveal } from '../ui/Reveal'
 
 export function Toolkit() {
   return (
-    <section id="toolkit" aria-labelledby="toolkit-title" className="border-b border-line py-20 sm:py-24">
+    <section id="toolkit" aria-labelledby="toolkit-title" className="py-20 sm:py-24">
       <div className="container-page">
         <Reveal className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="eyebrow text-muted">
-              <span className="text-accent-600">06</span> &nbsp;Professional Toolkit
+              <span className="text-accent-600">04</span> &nbsp;Professional Toolkit
             </p>
             <h2 id="toolkit-title" className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl">
               Tools & Platforms

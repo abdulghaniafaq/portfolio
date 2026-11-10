@@ -8,6 +8,7 @@ export function Work() {
     <section id="work" aria-labelledby="work-title" className="py-20 sm:py-28">
       <div className="container-page">
         <SectionHeading
+          as="h1"
           id="work-title"
           index="03"
           label="Work"

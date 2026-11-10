@@ -9,6 +9,8 @@ interface SectionHeadingProps {
   id?: string
   tone?: 'light' | 'dark'
   align?: 'left' | 'split'
+  /** The page's main heading is an h1; every other section heading stays an h2. */
+  as?: 'h1' | 'h2'
 }
 
 export function SectionHeading({
@@ -19,6 +21,7 @@ export function SectionHeading({
   id,
   tone = 'light',
   align = 'left',
+  as: Heading = 'h2',
 }: SectionHeadingProps) {
   const dark = tone === 'dark'
   return (
@@ -35,14 +38,14 @@ export function SectionHeading({
           <span aria-hidden="true" className={`h-px w-8 ${dark ? 'bg-white/25' : 'bg-line-strong'}`} />
           {label}
         </p>
-        <h2
+        <Heading
           id={id}
           className={`mt-5 text-4xl font-semibold tracking-[-0.035em] text-balance sm:text-5xl lg:text-[3.5rem] lg:leading-[1.04] ${
             dark ? 'text-white' : 'text-ink'
           }`}
         >
           {title}
-        </h2>
+        </Heading>
       </div>
       {description && (
         <p
