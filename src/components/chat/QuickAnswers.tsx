@@ -343,7 +343,7 @@ export function QuickAnswers() {
           >
             <div className="flex items-center gap-2">
               <label htmlFor={inputId} className="sr-only">
-                Ask a question about Abdul
+                Ask about experience, skills, projects
               </label>
               <input
                 ref={inputRef}

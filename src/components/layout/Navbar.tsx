@@ -27,6 +27,7 @@ export function Navbar() {
   const { pathname } = useLocation()
   // A case study (/work/kora) belongs to its parent page, Work.
   const active = navLinks.find((l) => pathname === l.to || pathname.startsWith(`${l.to}/`))?.to
+  const onContact = active === '/contact'
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const toggleRef = useRef<HTMLButtonElement>(null)
@@ -136,13 +137,16 @@ export function Navbar() {
           >
             <Icon name="download" size={17} />
           </a>
-          <Link
-            to="/contact"
-            className="group hidden h-10 items-center gap-2 rounded-full bg-ink px-4 text-sm font-medium text-paper transition-colors hover:bg-accent-600 forced-colors:border sm:inline-flex"
-          >
-            Let’s Talk
-            <Icon name="arrowUpRight" size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          {/* Already on the Contact page: the button would only lead to where the visitor is. */}
+          {!onContact && (
+            <Link
+              to="/contact"
+              className="group hidden h-10 items-center gap-2 rounded-full bg-ink px-4 text-sm font-medium text-paper transition-colors hover:bg-accent-600 forced-colors:border sm:inline-flex"
+            >
+              Let’s Talk
+              <Icon name="arrowUpRight" size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          )}
 
           <ThemeToggle className="size-10" />
 
@@ -202,13 +206,15 @@ export function Navbar() {
               Download Resume
               <Icon name="download" size={17} />
             </a>
-            <Link
-              to="/contact"
-              className="flex h-12 items-center justify-center gap-2 rounded-full bg-ink font-medium text-paper forced-colors:border"
-            >
-              Let’s Talk
-              <Icon name="arrowUpRight" size={17} />
-            </Link>
+            {!onContact && (
+              <Link
+                to="/contact"
+                className="flex h-12 items-center justify-center gap-2 rounded-full bg-ink font-medium text-paper forced-colors:border"
+              >
+                Let’s Talk
+                <Icon name="arrowUpRight" size={17} />
+              </Link>
+            )}
             <p className="mt-4 text-center text-sm text-muted">{profile.shortTitle}</p>
           </div>
         </div>

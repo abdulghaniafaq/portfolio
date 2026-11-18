@@ -48,6 +48,15 @@ Colours are defined once as tokens in `src/index.css` (`@theme`) and overridden 
 The theme is set before first paint by an inline script in `index.html` (saved choice, else the system setting), so dark-mode visitors never see a white flash. `useTheme` handles the toggle, remembers the choice, follows the system until the visitor picks one, and keeps other open tabs in sync.
 Panels that stay dark in both themes (footer, process band, featured skill card) use `bg-panel` with white text on purpose.
 
+## Accessibility (WCAG 2.2 AA)
+The site is built and checked against WCAG 2.2 level AA. Conventions to keep when editing:
+- Text and UI colours come from the tokens in `src/index.css`, which were chosen for AA contrast in both themes. Don't hard-code colours.
+- Interactive targets are at least 24×24 px; keep the visible focus ring (`:focus-visible`) and never remove it.
+- Every page has one `<h1>`, and focus moves to it after an in-app page change so screen readers announce the new page.
+- Anything that animates on its own has a pause control and respects `prefers-reduced-motion`.
+- Controls get an accessible name that contains their visible text. The address links carry an explicit `aria-label` because their line-break hints would otherwise read as spaces.
+- The resume PDF in `public/` is tagged and declares its language. When replacing it, export with heading styles so the section titles are tagged as headings, and set the document language.
+
 ## Checks
 ```bash
 npm run typecheck      # tsc -b

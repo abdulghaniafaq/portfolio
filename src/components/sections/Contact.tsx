@@ -36,7 +36,8 @@ function Detail({ icon, label, value, href }: DetailProps) {
   const cls =
     'group flex items-center gap-4 rounded-2xl border border-line bg-surface p-5 shadow-card transition-[border-color,box-shadow] duration-300'
   return href ? (
-    <a href={href} className={`${cls} hover:border-line-strong hover:shadow-lift`}>
+    // aria-label: the line-break hints inside <Value> would otherwise show up as spaces in the spoken address
+    <a href={href} aria-label={`${label} ${value}`} className={`${cls} hover:border-line-strong hover:shadow-lift`}>
       {body}
     </a>
   ) : (

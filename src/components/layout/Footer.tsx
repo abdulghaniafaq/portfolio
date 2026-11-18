@@ -15,7 +15,8 @@ function SocialLink({ icon, label, href }: { icon: IconName; label: string; href
   )
   const cls = 'flex min-h-9 w-full min-w-0 items-center gap-2.5 py-1 text-sm'
   return href ? (
-    <a href={href} className={`${cls} text-white/75 transition-colors hover:text-white`}>
+    // aria-label: the line-break hints inside <Value> would otherwise show up as spaces in the spoken address
+    <a href={href} aria-label={label} className={`${cls} text-white/75 transition-colors hover:text-white`}>
       {inner}
     </a>
   ) : (

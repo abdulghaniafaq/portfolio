@@ -90,8 +90,15 @@ function ScrollManager() {
       window.scrollTo({ top, behavior: 'instant' })
       const frame = requestAnimationFrame(() => {
         window.scrollTo({ top, behavior: 'instant' })
-        // A new page: move focus to its content so keyboard and screen-reader users start there, not on the link they used.
-        if (lastPath.current !== pathname) document.getElementById('main')?.focus({ preventScroll: true })
+        // A new page: move focus to its heading so keyboard users start there, not on the link they used, and
+        // screen readers announce which page they are now on ("About, heading level 1").
+        if (lastPath.current !== pathname) {
+          const target = document.querySelector<HTMLElement>('#main h1') ?? document.getElementById('main')
+          if (target) {
+            if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1')
+            target.focus({ preventScroll: true })
+          }
+        }
         lastPath.current = pathname
       })
       return () => cancelAnimationFrame(frame)
