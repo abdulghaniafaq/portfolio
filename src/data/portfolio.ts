@@ -39,10 +39,10 @@ export const profile: Profile = {
   availability: 'Immediately available',
 
   stats: [
-    { value: '3', suffix: '+', label: 'Years in business analysis, product, and project roles' },
-    { value: '4', suffix: '+', label: 'Product launches for global clients' },
-    { value: '50', suffix: '+', label: 'Stakeholder calls to elicit requirements' },
-    { value: '2', label: 'Higher-education SaaS products owned end to end' },
+    { value: '4', suffix: '+', label: 'Product launches for global and Indian clients' },
+    { value: '2', label: 'US higher-ed SaaS products, requirements and backlog owned end to end' },
+    { value: '30', suffix: '%', label: 'Fewer revision cycles through early wireframe validation' },
+    { value: '3', suffix: '+', label: 'Years across business analysis, product and project roles' },
   ],
 
   domains: ['Higher Education', 'EdTech', 'LMS', 'CMS', 'Accessibility', 'AI'],

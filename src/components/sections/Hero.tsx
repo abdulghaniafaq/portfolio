@@ -71,11 +71,11 @@ export function Hero() {
 
         {/* Proof points: numbers are what recruiters scan for first */}
         <Reveal delay={300} className="mt-20 border-t border-line pt-8 lg:mt-24">
-          <dl className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4 md:gap-x-10">
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4 lg:gap-x-10">
             {stats.map((stat) => (
               <div key={stat.label} className="grid grid-rows-[auto_1fr]">
                 {/* Label comes first in the DOM (term, then value); the grid shows the number above it */}
-                <dt className="row-start-2 mt-2 max-w-[16rem] text-sm leading-snug text-muted">{stat.label}</dt>
+                <dt className="row-start-2 mt-2 max-w-[16rem] text-sm leading-snug text-pretty text-muted">{stat.label}</dt>
                 <dd className="row-start-1 text-4xl leading-none font-semibold tracking-[-0.045em] text-ink sm:text-5xl">
                   {stat.value}
                   {stat.suffix && (

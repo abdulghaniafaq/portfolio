@@ -56,7 +56,7 @@ export const quickAnswers: QuickAnswer[] = [
       'how senior is he',
     ],
     answer:
-      'Abdul has more than three years of experience across business analysis, product and project roles, and has contributed to at least four product launches for global clients.',
+      'Abdul has more than three years of experience across business analysis, product and project roles, and has contributed to at least four product launches for global and Indian clients.',
     actions: [experience],
   },
   {
@@ -109,7 +109,7 @@ export const quickAnswers: QuickAnswer[] = [
       'what would he add to our team',
     ],
     answer:
-      'Abdul combines business analysis with hands-on product ownership. He has run product work end to end on two higher-education SaaS products, and he also brings pre-sales and RFP experience, including an Employee of the Month award for bid management. To talk about fit, the best next step is to email him or message him on LinkedIn.',
+      'Abdul combines business analysis with hands-on product ownership. He owns requirements and the backlog end to end on two US higher-education SaaS products, and he also brings pre-sales and RFP experience, including an Employee of the Month award for bid management. To talk about fit, the best next step is to email him or message him on LinkedIn.',
     actions: [experience, ...reachOut],
   },
   {
@@ -467,7 +467,7 @@ export const quickAnswers: QuickAnswer[] = [
       'proof of impact',
     ],
     answer:
-      'Highlights include more than three years of experience, at least four product launches for global clients, more than 50 stakeholder calls to elicit requirements, and two higher-education SaaS products owned end to end. Other results: about a 10% month-over-month gain in RFP pipeline efficiency, 30% fewer wireframe revision cycles and 95% on-time status reporting at SYMB, and 100% acceptance-criteria alignment at InnovationM.',
+      'Highlights include more than three years of experience, at least four product launches for global and Indian clients, requirements and backlog owned end to end on two US higher-education SaaS products, and 30% fewer revision cycles through early wireframe validation. Other results: about a 10% month-over-month gain in RFP pipeline efficiency, 95% on-time status reporting at SYMB, and 100% acceptance-criteria alignment at InnovationM.',
     actions: [experience],
   },
 
